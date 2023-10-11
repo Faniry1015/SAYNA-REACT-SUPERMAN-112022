@@ -1,0 +1,21 @@
+.range-input {
+    width: 100%;
+    /* la bordure pour partie non remplie (blanche)*/
+    background-color: white;
+    border: none;
+    width: 100%;
+    height: 2px;
+    cursor: pointer;
+
+}
+
+.price-bar input[type="range"]::-webkit-slider-thumb,
+.price-bar input[type="range"]::-moz-range-thumb {
+    background-color: brown;
+    border: none;
+}
+
+.price-bar input[type="range"]::-webkit-slider-runnable-track,
+.price-bar input[type="range"]::-moz-range-progress {
+    background-color: brown
+}

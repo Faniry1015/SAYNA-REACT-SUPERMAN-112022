@@ -1,0 +1,21 @@
+.inscription .formulaire {
+    background: linear-gradient(to left, rgb(18, 91, 52), rgb(1, 92, 148));
+    max-width: 75%;
+    padding: 60px 10%;
+    margin-top: -35px;
+    border-radius: 10px;
+}
+
+form {
+    background: linear-gradient(90deg, rgba(153, 158, 158, 0.8), rgba(92, 93, 94, 0.8));
+    padding: 25px;
+    border-radius: 10px;
+}
+
+.errorMessage {
+    border: solid 1px grey;
+    border-radius: 10px;
+    background-color: yellow;
+    color: red;
+    font-weight: bold;
+}
