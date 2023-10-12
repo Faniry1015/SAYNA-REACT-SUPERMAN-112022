@@ -1,8 +1,9 @@
 import React from 'react'
+import '../styles/Layout.css'
 import { Outlet, useLocation } from 'react-router-dom';
 import Header from "./Header.js";
 import Footer from "./Footer.js";
-// import home from "../assets/illustrations/Bathome1.png"
+import home from "../assets/images/img1.png"
 // import eshop from "../assets/bg/bg_1.png"
 // import game from "../assets/bg/bg_5.png"
 // import compte from "../assets/bg/bg_3.png"
@@ -27,9 +28,9 @@ function Layout() {
   return (
     <>
       <div id="appContainer">
-      <div className='backgroundImg'>
-        <img src={''} alt="background-image" />
-      </div>
+        <div className='backgroundImg'>
+          <img src={home} alt="background-image" />
+        </div>
         <div id="appBody">
           <Header />
           <Outlet />

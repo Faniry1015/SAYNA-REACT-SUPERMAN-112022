@@ -1,0 +1,17 @@
+body {
+    background: linear-gradient(#000000, #212E3E);
+}
+
+.backgroundImg {
+    position: absolute;
+    z-index: -1;
+  } 
+  
+  .backgroundImg img {
+    width : 100% ;
+  }
+
+  #appBody {
+    margin-right: 5%;
+    margin-left: 5%;
+}

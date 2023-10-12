@@ -7,14 +7,83 @@
 
 /* Définition des couleurs de base */
 
-body {
-    background: linear-gradient(#000000, #212E3E);
+:root {
+  --myBlack: #000000;
+  --myWhite: #FFFFFF;
+  --myGrey: #7C7675;
+  --myRed: #B11313;
+  --myYellow: #F1C530;
+  --myBlue: #07338C;
 }
 
-:root {
-    --myYellow: #FFFF00;
-    --myGrey50: #c4c4c450;
-    --myGreyfull: #c4c4c4;
-    --myGreyBorder: #bcbbbd44;
-    --myMarineBleu: #19587D;
-  }
+/*POLICES*/ 
+  @font-face {
+    font-family: 'Rajdhani';
+    src: url(../polices/Rajdhani/Rajdhani-Regular.ttf), url(../polices/Rajdhani/Rajdhani-Medium.ttf), url(../polices/Rajdhani/Rajdhani-Bold.ttf), url(../polices/Rajdhani/Rajdhani-Light.ttf), url(../polices/Rajdhani/Rajdhani-SemiBold.ttf) format('ttf');
+}
+  @font-face {
+    font-family: 'Cantarell';
+    src: url(../polices/Cantarell/Cantarell-Regular.ttf) format('ttf');
+}
+  @font-face {
+    font-family: 'Adventure';
+    src: url(../polices/adventure/Adventure.otf) format('otf');
+}
+
+/* Effet fadeIn sur tous les éléments
+h2, h3, h4, figure, img, li, p, .btnContain__btn  {
+    animation: fadeIn 5s normal;
+    -webkit-animation: fadeIn 5s normal;
+    -o-animation: fadeIn 5s normal;
+  } */
+
+  @keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-ms-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
