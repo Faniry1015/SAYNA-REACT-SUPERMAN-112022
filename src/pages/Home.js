@@ -145,9 +145,9 @@ function Home() {
                         {/* Affiche MAN OF STEEL */}
                         <div className="sec5__carrousContain__main">
                             <div className="sec5__carrousContain__main__imgContainer">
-                                <Link href={boManOfSteel}>
+                                <a href={boManOfSteel}>
                                     <img src={posterSuperman} alt="Superman Man of Steel" />
-                                </Link>
+                                </a>
                             </div>
                             <div className="sec5__carrousContain__main__mediaDescription">
                                 <a href={''}>

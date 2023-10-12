@@ -1,5 +1,26 @@
+
+.illPic {
+    display: flex;
+    justify-content: space-between;
+    width: 100%
+}
+.illPic div {
+    height: 600px;
+    width: 400px;
+    overflow: hidden;
+    position: relative;
+}
+
+.illPic img {
+    height: 600px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+}
+
 /*SECTION 1*/
 .sect1 {
+    margin: 200px 0 ;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -7,7 +28,7 @@
 
 .sect1 h1 {
     font-family: 'Adventure';
-    font-size: 96px ;
+    font-size: 150px ;
     font-weight: bold;
 }
 .sect1 h2 {
@@ -15,42 +36,8 @@
     font-size: 50px ;
     font-weight: bold;
 }
-
-/*SECTION 2: Batman au cinéma*/
-.sec2__firstBigArrow {
-    margin: 70px 0;
-    text-align: center;
-}
-
-
-/*SECTION 3 : Némésis*/
-.sec3__logo {
-    position: relative;
-    width: 100px;
-    top: 0;
-    right: 5%;
-}
-
-
-/* SECTION 4 Alliés*/
-.sec4__TitleSideImgContain {
-    display: flex;
-    align-items: flex-end;
-}
-
-.sec4__TitleSideImgContain__divImg {
-    height: 25vw;
-    position: absolute;
-    right: 0;
-}
-
-.sec4__TitleSideImgContain__divImg img {
-    height: 100%;
-    opacity: 75%;
-}
-
-.sec4 p {
-    margin: 20px 0
+.sect1__contentDiv {
+    margin-left: 25px;
 }
 
 /*SECTION 5 : multimédia*/
