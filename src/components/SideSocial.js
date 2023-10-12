@@ -1,4 +1,5 @@
 import React from 'react'
+import '../styles/SideSocial.css'
 import facebookImg from '../assets/icones/facebook.png';
 import instagramImg from '../assets/icones/instagram.png';
 import twitterImg from '../assets/icones/twitter.png';

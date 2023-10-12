@@ -1,6 +1,7 @@
 import React from 'react'
 import '../styles/Layout.css'
 import { Outlet, useLocation } from 'react-router-dom';
+import SideSocial from './SideSocial';
 import Header from "./Header.js";
 import Footer from "./Footer.js";
 import home from "../assets/images/img1.png"
@@ -32,6 +33,7 @@ function Layout() {
           <img src={home} alt="background-image" />
         </div>
         <div id="appBody">
+          <SideSocial />
           <Header />
           <Outlet />
           <Footer />

@@ -1,0 +1,252 @@
+/*SECTION 1*/
+.sect1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sect1 h1 {
+    font-family: 'Adventure';
+    font-size: 96px ;
+    font-weight: bold;
+}
+.sect1 h2 {
+    font-family: 'Adventure';
+    font-size: 50px ;
+    font-weight: bold;
+}
+
+/*SECTION 2: Batman au cinéma*/
+.sec2__firstBigArrow {
+    margin: 70px 0;
+    text-align: center;
+}
+
+
+/*SECTION 3 : Némésis*/
+.sec3__logo {
+    position: relative;
+    width: 100px;
+    top: 0;
+    right: 5%;
+}
+
+
+/* SECTION 4 Alliés*/
+.sec4__TitleSideImgContain {
+    display: flex;
+    align-items: flex-end;
+}
+
+.sec4__TitleSideImgContain__divImg {
+    height: 25vw;
+    position: absolute;
+    right: 0;
+}
+
+.sec4__TitleSideImgContain__divImg img {
+    height: 100%;
+    opacity: 75%;
+}
+
+.sec4 p {
+    margin: 20px 0
+}
+
+/*SECTION 5 : multimédia*/
+.sec5__carrousContain {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.sec5__carrousContain button{
+    background: none;
+    border: none;
+    border: none;
+}
+
+.sec5__carrousContain button:hover {
+    filter: brightness(200%);
+}
+
+.sec5__carrousContain__main {
+    width: 60%;
+    min-width: 300px;
+    display: flex;
+}
+
+.sec5__carrousContain__main__imgContainer {
+    display: flex;
+    align-items: center;
+}
+
+.sec5__carrousContain__main__mediaDescription {
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(135deg, #EDDEBF60, #19587D60);
+    border-radius: 0 10px 10px 0;
+    padding: 5px;
+}
+
+.sec5__carrousContain__main__mediaDescription a {
+    color: white;
+    text-decoration: none;
+}
+
+.sec5__carrousContain__main__mediaDescription__component {
+    font-size: 12px;
+    margin: 5px;
+}
+
+.sec5__carrousContain__main__mediaDescription span {
+    color: #FFFF00;
+}
+
+.sec5__videoDiv__video {
+    width: 100%;
+}
+
+
+/* SECTION 7: Formulaire */
+.sec7 {
+    background: linear-gradient(135deg, #EDDEBF60, #19587D60);
+    padding: 20px 15%;
+    min-width: 350px;
+}
+
+.sec7__title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sec7__form__div {
+    margin: 30px 0 10px;
+}
+
+.sec7__form__div__h4 {
+    font-size: 18px;
+    font-weight: 100;
+}
+
+.sec7__form__div__input,
+.sec7__form__div__checkbox,
+.sec7__form__div__fieldset__legend,
+.sec7__form__div__textarea,
+.sec7__form__div__frequence,
+.sec7__form__div__selectContainer__select {
+    color: rgba(255, 255, 255, 0.5);
+    background: none;
+    border: none;
+    border-bottom: solid 1px rgba(255, 255, 255, 0.5);
+    font-size: 12px;
+    font-family: 'Space Grotesk';
+    margin: 10px 0;
+    width: 100%
+}
+
+.sec7__form__div__frequence {
+    border-bottom: none;
+}
+
+.sec7__form__div__selectContainer select option {
+    background-color:grey;
+}
+
+.sec7__form__div__checkbox {
+    border-bottom: none;
+    margin: 10px 0 20px;
+    width: 70%;
+    min-width: 250px;
+}
+
+.sec7__form__div__checkbox input[type="checkbox"] {
+    	position: relative;
+        bottom: -3px;
+        right: -5px;
+}
+
+fieldset {
+    border: none;
+}
+
+.sec7__form__div__fieldset__radioContain {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+/* Transformer radio en bouton */
+.sec7__form__div__fieldset__radioContain__choice {
+    display: none;
+}
+
+.sec7__form__div__fieldset__radioContain__choice + label {
+    width: 70px;
+    padding: 5px 0;
+    margin: 5px; 
+    font-size: 12px;
+    font-family: Rajdhani;
+    text-align: center;
+    border-image: linear-gradient(60deg,var(--myGrey50), var(--myMarineBleu)) 1 / 1.5px;
+    -o-border-image: linear-gradient(60deg,var(--myGrey50), var(--myMarineBleu)) 1 / 1.5px;
+}
+
+.sec7__form__div__fieldset__radioContain__choice+ label:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor:pointer;
+}
+
+.sec7__form__div__fieldset__radioContain__choice:checked + label {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.sec7__form__div textarea::placeholder {
+    font-size: 12px;
+    font-family: 'Space Grotesk';
+}
+
+.sec7__form__submit {
+    text-align: center;
+}
+
+.sec7__form__submit button {
+    border: none;
+}
+
+/* SECTION 8: Citations */
+.sec8 {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background:
+        url(../assets/logo/icon_guillemets_1.png)no-repeat top left,
+        url(../assets/logo/icon_guillemets_2.png) no-repeat bottom right; */
+}
+
+.sec8__figure {
+    width: 40%;
+    margin: 75px 0;
+    font-size: 12px;
+    text-align: center;
+}
+
+.sec8__figure blockquote p{
+    text-align: center;
+    line-height: 1.6;
+}
+
+.sec8__figure figcaption {
+    margin: 10px 0;
+}
+
+.sec8__figure figcaption,
+.sec8__figure figcaption cite {
+    font-style: normal;
+    color: var(--myGreyfull);
+    line-height: 1.9;
+}

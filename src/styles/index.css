@@ -27,7 +27,15 @@
 }
   @font-face {
     font-family: 'Adventure';
-    src: url(../polices/adventure/Adventure.otf) format('otf');
+    src: url(../polices/adventure/Adventure.otf),  format('otf');
+}
+
+html, body {
+  color: var(--myWhite)
+}
+
+section {
+  margin : 50px 10%
 }
 
 /* Effet fadeIn sur tous les éléments
@@ -37,7 +45,7 @@ h2, h3, h4, figure, img, li, p, .btnContain__btn  {
     -o-animation: fadeIn 5s normal;
   } */
 
-  @keyframes fadeIn {
+  /* @keyframes fadeIn {
     0% {
         opacity: 0;
     }
@@ -85,5 +93,5 @@ h2, h3, h4, figure, img, li, p, .btnContain__btn  {
     100% {
         opacity: 1;
     }
-}
+} */
 

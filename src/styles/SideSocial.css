@@ -1,0 +1,38 @@
+/* ASIDE:Icônes latéraux de réseaux sociaux */
+aside {
+  position: sticky;
+  top: 5px;
+}
+
+aside figure {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+aside img {
+  max-width: 75px;
+}
+
+
+@media screen and (min-width: 500px) {
+  aside figure {
+      display: initial;
+  }
+  aside {
+      position: fixed;
+      left: 8%;
+      top: 200px;
+  }
+  
+  aside figure div {
+      text-align: center;
+      margin: 50px 0;
+  }
+
+  aside img {
+      max-width: none;
+  }
+}

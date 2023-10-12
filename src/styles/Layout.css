@@ -4,7 +4,7 @@ body {
 
 .backgroundImg {
     position: absolute;
-    z-index: -1;
+    z-index: -10;
   } 
   
   .backgroundImg img {
@@ -14,4 +14,8 @@ body {
   #appBody {
     margin-right: 5%;
     margin-left: 5%;
+}
+
+main {
+    z-index: 10;
 }

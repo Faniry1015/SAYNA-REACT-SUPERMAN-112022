@@ -41,14 +41,7 @@
  }
  
  .header ul li {
-     margin: 5px 15px;
- }
- 
- .navBarBtn {
-     width : 100px;
-     border : none;
-     height : 30px;
-     padding : 0
+     margin: 5px 20px;
  }
 
  .header__divLogo {
