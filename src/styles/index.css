@@ -37,7 +37,7 @@ html, body {
 }
 
 p {
-  margin: 30px 0
+  margin: 30px 0;
 }
 
 h2 {
@@ -52,14 +52,14 @@ section {
   margin : 50px 10%
 }
 
-/* Effet fadeIn sur tous les éléments
-h2, h3, h4, figure, img, li, p, .btnContain__btn  {
+/* Effet fadeIn sur tous les éléments */
+/* h2, h3, h4, figure, img, li, p, .btnContain__btn  {
     animation: fadeIn 5s normal;
     -webkit-animation: fadeIn 5s normal;
     -o-animation: fadeIn 5s normal;
-  } */
+  } 
 
-  /* @keyframes fadeIn {
+  @keyframes fadeIn {
     0% {
         opacity: 0;
     }
@@ -109,3 +109,31 @@ h2, h3, h4, figure, img, li, p, .btnContain__btn  {
     }
 } */
 
+/*Bouton*/
+.btnContain {
+  display: flex;
+  justify-content: center;
+}
+
+.btnContain__btn {
+  text-align: center;
+  width: 200px;
+  padding: 10px;
+  margin: 0 10px;
+  background: var(--myBlue);
+}
+
+.btnContain__btn:hover,
+.btnContain__btn:focus {
+  background: linear-gradient(80deg, #07338C, #B11313);
+  cursor:pointer;
+}
+
+.btnContain__btn a,
+.btnContain__btn {
+  font-family: 'Rajdhani';
+  font-size: medium;
+  font-weight: 400;
+  color: white;
+  text-decoration: none;
+}

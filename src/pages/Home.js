@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/Home.css'
+import { ContactForm } from '../components/ContactForm';
 import dcLogo from '../assets/logos/logoDC.png'
 import superman2 from '../assets/images/img2.png'
 import superman3 from '../assets/images/img3.png'
@@ -11,12 +12,12 @@ import allié1 from '../assets/images/img8.png'
 import allié2 from '../assets/images/img9.png'
 import allié3 from '../assets/images/img10.png'
 import leftBtn from '../assets/icones/Polygon-1.png'
-import rightBtn from '../assets/icones/Polygon-1.png'
-import boManOfSteel from '../assets/videos/bo-man-of-steel.mp4'
+import rightBtn from '../assets/icones/Polygon.png'
 import posterSuperman from '../assets/images/img12.png'
+import boManOfSteel from '../assets/videos/bo-man-of-steel.mp4'
+import boManOfSteelPoster from '../assets/images/img15.png'
 
 function Home() {
-
     return (
         <main>
             {/* Section 1 Il est Batman */}
@@ -114,21 +115,21 @@ function Home() {
                             mère. Une fois engagé au Daily Planet, il rencontrera Loïs Lane qui deviendra sa partenaire et son seul “véritable amour”
                         </p>
                         <div className="illPic">
-                        <figure>
-                            <div >
-                                <img src={allié1} alt="Allié 1" />
-                            </div>
-                        </figure>
-                        <figure>
-                            <div >
-                                <img src={allié2} alt="Allié 2" />
-                            </div>
-                        </figure>
-                        <figure>
-                            <div >
-                                <img src={allié3} alt="Allié 3" />
-                            </div>
-                        </figure>
+                            <figure>
+                                <div >
+                                    <img src={allié1} alt="Allié 1" />
+                                </div>
+                            </figure>
+                            <figure>
+                                <div >
+                                    <img src={allié2} alt="Allié 2" />
+                                </div>
+                            </figure>
+                            <figure>
+                                <div >
+                                    <img src={allié3} alt="Allié 3" />
+                                </div>
+                            </figure>
                         </div>
                     </div>
                 </div>
@@ -145,19 +146,16 @@ function Home() {
                         {/* Affiche MAN OF STEEL */}
                         <div className="sec5__carrousContain__main">
                             <div className="sec5__carrousContain__main__imgContainer">
-                                <a href={boManOfSteel}>
-                                    <img src={posterSuperman} alt="Superman Man of Steel" />
-                                </a>
+                                <img src={posterSuperman} alt="Superman Man of Steel" />
                             </div>
                             <div className="sec5__carrousContain__main__mediaDescription">
-                                <a href={''}>
-                                    <div className="sec5__carrousContain__main__mediaDescription__component">ACTION, ADVENTURE</div>
-                                    <h3 className="sec5__carrousContain__main__mediaDescription__component">Superman Man of Steel</h3>
-                                    <div className="sec5__carrousContain__main__mediaDescription__component">IMDB :<span>7.1</span></div>
-                                    <p className="sec5__carrousContain__main__mediaDescription__component">
-                                        Le jeune Bruce Wayne assiste impuissant au meurtre de ses parents. Profondément traumatisé, il grandit obnubilé par un désir de vengeance. La Ligue des ombres, une secte de guerriers ninja dirigée par Ra's al Ghul, se chargera de son entraînement. De retour chez lui à Gotham, avec l'aide de son majordome Alfred Pennyworth, Bruce Wayne se lance alors dans la lutte contre le crime sous le nom de Batman.
-                                    </p>
-                                </a>
+
+                                <div className="sec5__carrousContain__main__mediaDescription__component">ACTION, ADVENTURE</div>
+                                <h3 className="sec5__carrousContain__main__mediaDescription__component">Superman Man of Steel</h3>
+                                <div className="sec5__carrousContain__main__mediaDescription__component">IMDB :<span>7.1</span></div>
+                                <p className="sec5__carrousContain__main__mediaDescription__component">
+                                    Le jeune Bruce Wayne assiste impuissant au meurtre de ses parents. Profondément traumatisé, il grandit obnubilé par un désir de vengeance. La Ligue des ombres, une secte de guerriers ninja dirigée par Ra's al Ghul, se chargera de son entraînement. De retour chez lui à Gotham, avec l'aide de son majordome Alfred Pennyworth, Bruce Wayne se lance alors dans la lutte contre le crime sous le nom de Batman.
+                                </p>
                             </div>
                         </div>
                         <button>
@@ -165,24 +163,13 @@ function Home() {
                         </button>
                     </div>
                     <div id="BatmanTrailerVid" className="sec5__videoDiv">
-                        <video className="sec5__videoDiv__video" src='' type="video/mkv" poster={''} controls></video>
+                        <video className="sec5__videoDiv__video" src={boManOfSteel} type="video/mkv" poster={boManOfSteelPoster} controls></video>
                     </div>
                 </div>
             </section>
 
             {/* Section 7: Formulaire */}
-            <section className="reveal">
-                <div className="sec7">
-                    {/* ... rest of your component */}
-                </div>
-            </section>
-
-            {/* PopupBox Message reçu */}
-            <div className="popupBox">
-                <div className="inside">
-                    <h1>Message reçu!</h1>
-                </div>
-            </div>
+            <ContactForm />
 
             {/* Section 8: Citations */}
             <section className="reveal">

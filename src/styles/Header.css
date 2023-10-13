@@ -28,15 +28,15 @@
 
  .header .active {
     /*gras et souligné sur la page active*/
-     color: red;
-     text-shadow: 1px 0 0 red;
+     color: #B11313;
+     text-shadow: 1px 0 0 #B11313;
      text-decoration-line: underline;
  }
  
  .header ul li a:hover {
      padding: 0;
-     color: red;
-     text-shadow: 1.5px 0 0 red;
+     color: #B11313;
+     text-shadow: 1.5px 0 0 #B11313;
      text-decoration-line: underline;
  }
  
