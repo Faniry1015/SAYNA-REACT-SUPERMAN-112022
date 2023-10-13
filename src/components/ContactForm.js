@@ -33,7 +33,7 @@ export const ContactForm = () => {
             <section className="reveal">
                 <div className="sec7">
                     <h2 className="sec7__title">PRENONS CONTACT</h2>
-                    <form className="sec7__form" onSubmit={handleSubmit}>
+                    <form className="sec7__form mb-5" onSubmit={handleSubmit}>
                         <div className="sec7__form__div">
                             <h4 className="sec7__form__div__h4">ADRESSE EMAIL</h4>
                             <input

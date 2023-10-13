@@ -135,6 +135,7 @@ button:focus, .btnContain__btn:focus {
   cursor:pointer;
 }
 
+button,
 .btnContain__btn a,
 .btnContain__btn {
   font-family: 'Adventure';

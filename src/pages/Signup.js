@@ -14,7 +14,7 @@ function Signup() {
         prenom: "",
         email: "",
         password: "",
-        password2: "",  
+        password2: "",
         checked: false,
         error: ""
     }
@@ -98,28 +98,30 @@ function Signup() {
                                         <div className="mb-3">
                                             <div className='acceptanceContainer'>
                                                 <div>
-                                                    <label className="form-check-label" htmlFor="exampleCheck1">Je reconnais avoir pris connaissance et j'accepte les termes des <Link to="/">conditions générales d'utilisation.</Link></label>
+                                                    <label className="form-check-label mb-3" htmlFor="exampleCheck1">Je reconnais avoir pris connaissance et j'accepte les termes des <Link to="/">conditions générales d'utilisation.</Link></label>
                                                 </div>
                                                 <div className='switchContainer'>
-                                                <label htmlFor="" className="switch">
-                                                    <input type="checkbox" className="form-check-input" id="exampleCheck1" checked={checked} onChange={handleChange} />
-                                                    <span className="slider round"></span>
-                                                </label>
+                                                    <label htmlFor="" className="switch">
+                                                        <input type="checkbox" className="form-check-input" id="exampleCheck1" checked={checked} onChange={handleChange} />
+                                                        <span className="slider round"></span>
+                                                    </label>
                                                 </div>
 
                                             </div>
-
-
                                         </div>
-                                        <div className='btnContain'>
-                                            <button type="submit" className="btnContain__form">Submit</button>
+                                        <div className='btnContain mb-3'>
+                                            <button type="submit" className="btnContain__form">valider</button>
                                         </div>
-                                        <div className='social'>
-                                            <div>Connectez vous avec</div>
+                                        <div className='social mb-3'>
+                                            <div className='connectWith__container mb-3'>
+                                                <div className='connectWith mb-2'>Connectez vous avec</div>
+                                                <div className='line'></div>
+                                            </div>
+
                                             <div className='socialLogo'>
-                                                <Link to=""><img src={logoGoogle} alt="Google+" /></Link>
-                                                <Link to=""><img src={logoFB} alt="Facebook" /></Link>
-                                                <Link to=""><img src={logoApple} alt="Apple" /></Link>
+                                                <Link to="/login"><img src={logoGoogle} alt="Google+" /></Link>
+                                                <Link to="/login"><img src={logoFB} alt="Facebook" /></Link>
+                                                <Link to="/login"><img src={logoApple} alt="Apple" /></Link>
                                             </div>
                                         </div>
                                     </form>
