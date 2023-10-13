@@ -3,15 +3,13 @@ import { auth } from '../firebase-config';
 
 import { createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword, sendPasswordResetEmail } from "firebase/auth";
 
-export {AuthContextProvider, UserAuth}
-
 const UserContext = createContext();
 
 const AuthContextProvider = ({children}) => {
     
     const [user, setUser] = useState({})
 
-    //Créer un User (n'enregistre que l'email et le mot de passe bien que nos champs contiennent d'autres info)
+    //Créer un User
     const createUser = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password);
     }
@@ -56,3 +54,5 @@ const AuthContextProvider = ({children}) => {
 const UserAuth = () => {
     return useContext(UserContext);
 };
+
+export {AuthContextProvider, UserAuth}

@@ -2,6 +2,11 @@ import { React, useRef, useState } from 'react'
 import { Link, useNavigate } from "react-router-dom"
 import "../styles/signup.css"
 import { UserAuth } from '../context/AuthContext'
+import { doc, setDoc } from 'firebase/firestore'
+import { db } from '../firebase-config'
+import logoGoogle from '../assets/logos/logo_8.png'
+import logoFB from '../assets/logos/facebook.png'
+import logoApple from '../assets/logos/logo_7.png'
 
 function Signup() {
     const defaultState = {
@@ -9,7 +14,7 @@ function Signup() {
         prenom: "",
         email: "",
         password: "",
-        password2: "",
+        password2: "",  
         checked: false,
         error: ""
     }
@@ -24,28 +29,29 @@ function Signup() {
 
     function handleChange(e) {
         if (e.target.type === "checkbox") {
-            setState((state, props) => ({  checked: e.target.checked, ...state }))
+            setState((state, props) => ({ ...state, checked: e.target.checked }))
         } else {
-            setState((state, props) => ({ [e.target.id]: e.target.value, ...state }))
+            setState((state, props) => ({ ...state, [e.target.id]: e.target.value }))
         }
     }
 
     async function handleSubmit(e) {
         e.preventDefault()
-        if ( password !== password2) {
+        if (password !== password2) {
             return setState((state, props) => ({ ...state, error: 'Les mots de passes ne sont pas identiques' }))
         }
         //On peut également utilisé le useRef
-        if (password !== passwordConfirmRef.current.value) {
-            return setState((state, props) => ({ ...state, error: 'Les mots de passes ne sont pas identiques' }))
-        }
+        // if (password !== passwordConfirmRef.current.value) {
+        //     return setState((state, props) => ({ ...state, error: 'Les mots de passes ne sont pas identiques' }))
+        // }
 
         // setState((state, props) => ({...state, error:""}));
         try {
             await createUser(email, password);
+            await setDoc(doc(db, 'usersDetails', `id-${state.email}`), state);
             navigate('/compte');
         } catch (e) {
-            setState((state, props) => ({...state, error: e.message}));
+            setState((state, props) => ({ ...state, error: e.message }));
         }
     }
 
@@ -53,6 +59,7 @@ function Signup() {
 
     return (
         <>
+            {JSON.stringify(state)}
             <section id='hero'>
                 <div className="hero-signup-image">
                     <div className="container">
@@ -88,19 +95,31 @@ function Signup() {
                                             <label htmlFor="passwordConfirm" className="form-label">Confirmez votre mot de passe</label>
                                             <input type="password" ref={passwordConfirmRef} className="form-control" id="password2" placeholder='mot de passe' value={password2} onChange={handleChange} />
                                         </div>
-                                        <div className="mb-3 form-check">
-                                            <label className="form-check-label" htmlFor="exampleCheck1">Je reconnais avoir pris connaissance et j'accepte les termes des <Link to="/">conditions générales d'utilisation.</Link></label>
-                                            <input type="checkbox" className="form-check-input" id="exampleCheck1" checked={checked} onChange={handleChange} />
+                                        <div className="mb-3">
+                                            <div className='acceptanceContainer'>
+                                                <div>
+                                                    <label className="form-check-label" htmlFor="exampleCheck1">Je reconnais avoir pris connaissance et j'accepte les termes des <Link to="/">conditions générales d'utilisation.</Link></label>
+                                                </div>
+                                                <div className='switchContainer'>
+                                                <label htmlFor="" className="switch">
+                                                    <input type="checkbox" className="form-check-input" id="exampleCheck1" checked={checked} onChange={handleChange} />
+                                                    <span className="slider round"></span>
+                                                </label>
+                                                </div>
+
+                                            </div>
+
+
                                         </div>
                                         <div className='btnContain'>
                                             <button type="submit" className="btnContain__form">Submit</button>
                                         </div>
                                         <div className='social'>
                                             <div>Connectez vous avec</div>
-                                            <div>
-                                                <Link to=""><img src={""} alt="" /></Link>
-                                                <Link to=""><img src={""} alt="" /></Link>
-                                                <Link to=""><img src={""} alt="" /></Link>
+                                            <div className='socialLogo'>
+                                                <Link to=""><img src={logoGoogle} alt="Google+" /></Link>
+                                                <Link to=""><img src={logoFB} alt="Facebook" /></Link>
+                                                <Link to=""><img src={logoApple} alt="Apple" /></Link>
                                             </div>
                                         </div>
                                     </form>
