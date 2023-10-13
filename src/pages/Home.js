@@ -176,11 +176,11 @@ function Home() {
                 <div className="sec8">
                     <figure className="sec8__figure">
                         <blockquote>
-                            <p>La seule façon raisonnable de vivre en ce bas monde, c'est en dehors des règles.</p>
+                            <p>Que représente le S ?</p>
+                            <p>Ce n’est pas un S. Sur ma planète cela signifie espoir</p>
                         </blockquote>
                         <figcaption>
-                            <cite>The Dark Knight : Le Chevalier Noir -</cite> <br />
-                            Le Joker à Batman (2008)
+                            <cite>Man Of Steel, Lois Lane et Clark Kent.</cite> <br />
                         </figcaption>
                     </figure>
                 </div>
