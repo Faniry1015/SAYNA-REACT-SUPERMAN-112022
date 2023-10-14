@@ -59,7 +59,6 @@ function Signup() {
 
     return (
         <>
-            {JSON.stringify(state)}
             <section id='hero'>
                 <div className="hero-signup-image">
                     <div className="container">
