@@ -24,7 +24,7 @@ function ProductItem({ product, addToCart }) {
                     <div className='priceNameContainer'>
                         <div className="title text-uppercase fs-6">{nom}</div>
                         <div className="product-price">
-                            <span className='deletedPrice'><del>{prix + (prix / 10)}$</del> </span><span className='fw-bold m-1'> {prix} $</span>
+                            <span className='deletedPrice'><del>{prix + (prix / 10)}€</del> </span><span className='fw-bold m-1'> {prix} €</span>
                         </div>
 
                     </div>

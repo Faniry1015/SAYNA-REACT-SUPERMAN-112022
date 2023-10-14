@@ -5,8 +5,6 @@ import { UserAuth } from '../context/AuthContext'
 function CartItem({ cartProductItem, deleteItem, qttChange }) {
     const { user } = UserAuth()
     const [itemsState, setItemsState] = useState(cartProductItem)
-    const deleteRef = useRef(null)
-    // const ProductDomRef = useRef()
 
     const handleCartProduct = (e) => {
         if (user) {
@@ -21,9 +19,6 @@ function CartItem({ cartProductItem, deleteItem, qttChange }) {
                     break
             }
             
-            if (e.target.id === 'delete') {
-                deleteRef.current.remove()
-            }
             setItemsState({...cartProductItem})
         }
     }
@@ -31,16 +26,16 @@ function CartItem({ cartProductItem, deleteItem, qttChange }) {
     const { nom, imgUrl, id, prixTotalArticles, quantité } = itemsState
     return (
         <>
-            <div className="d-flex justify-content-between align-items-center border-product" ref={deleteRef}>
+            <div className="d-flex justify-content-between align-items-center border-product">
                 <div className="product d-flex align-items-center">
-                    <img style={{ width: '30%' }} src={imgUrl} alt={nom} />
+                    <img className='cartitemImg' src={imgUrl} alt={nom} />
                     <div className="m-4">
                         <h5>{nom}</h5>
                         <span>Numéro du produit {id}</span>
                     </div>
                 </div>
                 <div className='price'>
-                    <p>{prixTotalArticles}$</p>
+                    <p>{prixTotalArticles}€</p>
                 </div>
                 <div className="qte bg-secondary text-center">
                     <div id='decrease' onClick={handleCartProduct}>

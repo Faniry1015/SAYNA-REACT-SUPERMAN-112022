@@ -4,11 +4,32 @@
 }
 
 .border-product {
-    border: 2px solid white;
+    border: 3px solid #7C7675;
     padding: 20px 40px;
     margin-bottom: 15px
 }
 
 .add-to-cart {
     min-width: 100px;
+}
+
+.recap h3{
+    font-family: 'Adventure';
+}
+
+.cartInactiveLabel {
+    text-decoration: underline;
+}
+
+.breadcrumb a {
+    text-decoration: none;
+}
+
+.breadcrumb {
+    font-size: 1.3em;
+}
+
+.cartitemImg {
+    width: 25%;
+    border: solid 3px #7C7675;
 }

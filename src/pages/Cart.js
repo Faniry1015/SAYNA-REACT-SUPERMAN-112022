@@ -41,6 +41,7 @@ function Cart() {
     // const leftProducts = cartProducts.filter((item) => item.nom !== product.nom)
     // setCartProducts([...leftProducts])
     await deleteDoc(doc(db, `Cart-${user.uid}`, product.nom))
+    getAllCartProduct()
   }
 
   const qttChange = async function (product, change) {
@@ -99,24 +100,21 @@ function Cart() {
   return (<>
     {/* {JSON.stringify(cartProducts)} */}
     <div className="container container-largeur">
-      <div className="row">
+      <div className="row mb-5 mt-5">
         <div className="d-flex justify-content-between">
           <nav>
             <ul className="breadcrumb">
-              <li className="breadcrumb-item"><Link to="/eshop" >eshop</Link></li>
-              <li className="breadcremb-item active"><Link to='/eshop/cart'>
+              <li className="breadcrumb-item"><Link to="/eshop" >E-shop </Link></li><span>&nbsp;/&nbsp;</span> 
+              <li className="breadcremb-item active"><span className='cartInactiveLabel'>
                 Panier
-              </Link>
+              </span>
               </li>
             </ul>
           </nav>
-          <div className="cart"><Link to='/eshop/cart'></Link>
-            <i className="fa-solid fa-2x fa-cart-plus"></i>
-          </div>
         </div>
       </div>
       <div className="recap">
-        <p>Récapitulatif du panier</p>
+        <h3>Récapitulatif du panier</h3>
       </div>
       <div className="product-box">
         <CartProducts cartProducts={cartProducts} deleteItem={deleteItem} qttChange={qttChange} />
@@ -125,7 +123,7 @@ function Cart() {
       <div className="sous-total container-largeur">
         <h3 className="float-end">
           <strong>Nombre total d'Articles : {state.totalArticles}</strong> <br />
-          <strong>Total à payer : {state.totalPayment}$</strong>
+          <strong>Total à payer : {state.totalPayment}€</strong>
         </h3>
       </div>
     </div>

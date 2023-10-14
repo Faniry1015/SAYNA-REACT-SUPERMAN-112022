@@ -24,7 +24,7 @@ function PriceFilter({ onMaxPriceChange }) {
                 className="range-input"
             />
             <div className="price-range">
-                <div className="max-price">Max: {maxPrice} $</div>
+                <div className="max-price">Max: {maxPrice} €</div>
             </div>
         </div>
     );

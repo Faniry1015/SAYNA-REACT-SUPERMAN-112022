@@ -20,7 +20,10 @@ function Layout() {
   if (location.pathname === '/eshop') {
     bgImg = eshop;
     bgClass = 'eshopRadiant'
-  } else if (location.pathname === '/compte') {
+  } else if (location.pathname ==='/eshop/cart') {
+    bgImg = '';
+    bgClass =''
+  }else if (location.pathname === '/compte') {
     bgImg = signup;
     bgClass = 'bgRadiant'
   } else if (location.pathname === '/signup') {
