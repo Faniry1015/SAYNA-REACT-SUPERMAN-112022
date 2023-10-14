@@ -22,22 +22,19 @@
      color: white;
      text-decoration-line: none;
      font-family: 'Rajdhani';
-     font-size: 36px;
+     font-size: 40px;
      font-weight: 500;
      text-transform: uppercase;
  }
 
  .header .active {
     /*gras et souligné sur la page active*/
-     color: #B11313;
-     text-shadow: 1px 0 0 #B11313;
      text-decoration-line: underline;
+     text-shadow: 2px 0 0;
  }
  
  .header ul li a:hover {
      padding: 0;
-     color: #B11313;
-     text-shadow: 1.5px 0 0 #B11313;
      text-decoration-line: underline;
  }
  

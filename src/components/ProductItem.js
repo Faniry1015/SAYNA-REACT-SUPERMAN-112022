@@ -30,7 +30,7 @@ function ProductItem({ product, addToCart }) {
                     </div>
                 </div>
                 <div className='addBtnContainer'>
-                    <button className='add-to-cart mt-3 w-100 ' onClick={handleAddToCart}>Ajouter</button>
+                    <button className='add-to-cart mt-3 w-100 ' onClick={handleAddToCart}>Ajouter au panier</button>
                 </div>
             </div>
         </>

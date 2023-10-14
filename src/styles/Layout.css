@@ -3,12 +3,15 @@ body {
 }
 
 .backgroundImg {
+  max-height: 100%;
   position: absolute;
+  overflow: hidden;
   z-index: -10;
 }
 
 .backgroundImg img {
   width: 100%;
+  z-index: -1 ;
 }
 
 #appBody {
@@ -21,7 +24,6 @@ main {
 }
 
 .bgRadiant {
-  position: absolute;
   overflow-x: hidden;
   top: 0;
   left: 0;
@@ -29,6 +31,15 @@ main {
   height: 100%;
   background: radial-gradient(at 80% 20%, #7c767586 5%, #000000 95%), linear-gradient(to bottom, black, transparent, #000000);
 
+}
+
+.eshopRadiant {
+  overflow-x: hidden;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, black 25px,#7c767586 400px,  #212E3E 800px);
 }
 
 .backgroundImg img {

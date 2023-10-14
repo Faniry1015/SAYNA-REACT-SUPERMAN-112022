@@ -5,7 +5,7 @@ import SideSocial from './SideSocial';
 import Header from "./Header.js";
 import Footer from "./Footer.js";
 import home from "../assets/images/img1.png"
-// import eshop from "../assets/bg/bg_1.png"
+import eshop from "../assets/images/img20.png"
 // import game from "../assets/bg/bg_5.png"
 // import compte from "../assets/bg/bg_3.png"
 import signup from "../assets/images/img19.png"
@@ -18,8 +18,8 @@ function Layout() {
 
   // Définir des classes spécifiques pour chaque NavLink actif
   if (location.pathname === '/eshop') {
-    bgImg = home;
-    bgClass =''
+    bgImg = eshop;
+    bgClass = 'eshopRadiant'
   } else if (location.pathname === '/compte') {
     bgImg = signup;
     bgClass = 'bgRadiant'
@@ -39,7 +39,6 @@ function Layout() {
       <div id="appContainer" className={bgClass}>
         <div className='backgroundImg'>
           <img src={bgImg} alt="background-image" />
-          <div ></div>
         </div>
         <div id="appBody">
           <SideSocial />
