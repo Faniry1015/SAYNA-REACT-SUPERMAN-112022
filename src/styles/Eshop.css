@@ -1,5 +1,7 @@
 .row {
     width: 100%;
+    height: fit-content;
+    overflow: initial;
     margin-left: 7%;
 }
 
@@ -17,9 +19,21 @@
 }
 
 .filtersContainer {
+    position:sticky;
+    top: 0px;
+    height: fit-content;
     font-size: 0.9em;
 }
 
 .filtersContainer h4 {
     font-size: 1.2em;
 }
+
+.filtersContainer h3 {
+    font-family: 'Adventure';
+}
+
+.fa-cart-shopping:hover {
+    color: #1a4292
+}
+

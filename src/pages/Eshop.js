@@ -173,7 +173,7 @@ function Eshop() {
          <section className="container pt-5">
             <div className="float-end">
                <Link to='/eshop/cart'>
-                  <i className="fa-solid fa-2x fa-cart-plus"></i>
+                  <i className="fa-solid fa-4x fa-fade fa-cart-shopping"></i>
                </Link>
             </div>
          </section>
@@ -193,7 +193,6 @@ function Eshop() {
                'FILTEREDDATA'{JSON.stringify(products)} */}
                {/* {JSON.stringify(visibleProducts)} */}
                <div className="col-md-9">
-                  <h3 className="text-center">Nos produits</h3>
                   <section id="products">
                      {
                         products.length >= 1 && (
