@@ -4,11 +4,11 @@ import "../styles/HeroShop.css"
 function HeroShop(props) {
   return (
     <section id="hero">
-    <div className="hero-image">
+      <div className="hero-image">
         <div className="container">
-            <h1 className="hero-title text-uppercase">Recuperez le flow de <br/>batman avec notre e-shop!</h1>
+          <h1 className="hero-title text-uppercase">ENVIE D’UN SLIP JAUNE ?</h1>
         </div>
-    </div>
+      </div>
     </section>
   )
 }

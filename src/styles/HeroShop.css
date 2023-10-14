@@ -1,0 +1,13 @@
+#hero {
+    margin: 250px 10% 200px
+}
+
+#hero h1 {
+    font-family: 'Adventure';
+    font-size: 75px;
+}
+
+.toBottomArrow {
+    width: 100% ;
+    text-align: center;
+}

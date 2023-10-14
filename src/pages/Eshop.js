@@ -8,6 +8,7 @@ import { UserAuth } from "../context/AuthContext";
 import '../styles/Eshop.css'
 import PriceFilter from "../components/PriceFilter";
 import Checkboxfilter from "../components/Checkboxfilter";
+import toBottomArrow from '../assets/icones/flèche_down_header.png'
 
 function Eshop() {
    const categorieArray = [
@@ -166,6 +167,9 @@ function Eshop() {
    return (
       <>
          <HeroShop />
+         <div className="toBottomArrow">
+            <img src={toBottomArrow} alt="Bottom Arrow" />
+         </div>
          <section className="container pt-5">
             <div className="float-end">
                <Link to='/eshop/cart'>
