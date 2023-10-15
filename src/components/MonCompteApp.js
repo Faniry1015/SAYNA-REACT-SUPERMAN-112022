@@ -1,12 +1,13 @@
 import React from 'react'
 import {Tabs, Tab} from './MonCompteTabs.js'
+import MonCompteInfoPers from './MonCompteInfoPers.js'
 
 function MonCompteApp() {
   return (
     <Tabs>
-        <Tab title="Mes informations personnels">
+        <MonCompteInfoPers title="Mes informations personnels">
 Info pers
-        </Tab>
+        </MonCompteInfoPers>
         <Tab title="Mes avis">
 Avis
         </Tab>

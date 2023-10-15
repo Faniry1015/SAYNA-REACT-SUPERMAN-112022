@@ -40,12 +40,12 @@ function Signup() {
         if (password !== password2) {
             return setState((state, props) => ({ ...state, error: 'Les mots de passes ne sont pas identiques' }))
         }
-        //On peut également utilisé le useRef
-        // if (password !== passwordConfirmRef.current.value) {
-        //     return setState((state, props) => ({ ...state, error: 'Les mots de passes ne sont pas identiques' }))
-        // }
+        /*On peut également utilisé le useRef
+         if (password !== passwordConfirmRef.current.value) {
+             return setState((state, props) => ({ ...state, error: 'Les mots de passes ne sont pas identiques' }))
+        }
 
-        // setState((state, props) => ({...state, error:""}));
+        setState((state, props) => ({...state, error:""}));*/
         try {
             await createUser(email, password);
             await setDoc(doc(db, 'usersDetails', `id-${state.email}`), state);

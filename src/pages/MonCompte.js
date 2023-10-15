@@ -2,7 +2,7 @@ import React from 'react'
 import { UserAuth } from '../context/AuthContext'
 import { useNavigate } from 'react-router-dom'
 import "../styles/MonCompte.css"
-import MonCompteApp from '../components/MoCompteApp'
+import MonCompteApp from '../components/MonCompteApp'
 
 function MonCompte() {
   const { user, logout } = UserAuth()
@@ -19,23 +19,14 @@ function MonCompte() {
 
   return (
     <>
+      <section className='userStatus'>
+      <i class="fa-regular fa-2x fa-circle-user"></i> {user && user.email} <button className="logoff" onClick={deconnecter}>Déconnecter</button>
+      </section>
       <section className='monCompte__header'>
         <h1>Seriez vous kryptonien ? <br />
           Dites nous en plus</h1>
       </section>
-      <section className='monCompte__mainSection'>
-        <div className="row">
-          <div className="col-md-3">
-
-            <p>Email utilisateur: {user && user.email} </p>
-            <button className="text-upercase" onClick={deconnecter}>Déconnecter</button>
-          </div>
-          <div className="col-md-9">
-
-          </div>
-        </div>
-      </section>
-      <MonCompteApp/>
+      <MonCompteApp />
 
 
     </>

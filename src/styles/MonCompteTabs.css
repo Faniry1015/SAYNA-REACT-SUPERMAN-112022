@@ -1,0 +1,13 @@
+.monCompte__nav a {
+    text-decoration:none;
+}
+
+.monCompte__nav a:active,
+.monCompte__nav a:hover {
+    text-decoration:underline;
+}
+
+.monCompte__nav li {
+    list-style-type: none;
+    margin-bottom: 20px;
+}

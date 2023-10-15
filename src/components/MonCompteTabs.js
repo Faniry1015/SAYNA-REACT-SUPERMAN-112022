@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import '../styles/MonCompteTabs.css'
 
 export function Tabs({ children }) {
     const childrenArray = (React.Children.toArray(children))
@@ -12,12 +13,26 @@ export function Tabs({ children }) {
 
     return (
         <>
-            <nav>
-                {newChildren.map((child) => {
-                    return <Link key={child.key} onClick={() => setCurrent(child.key)} >{child.props.title}</Link>
-                })}
-            </nav>
-            <section>{newChildren}</section>
+            <section className='monCompte__mainSection'>
+                <div className="row">
+                    <div className="col-md-3">
+                        <nav className='monCompte__nav'>
+                            <ul>
+                                {newChildren.map((child) => {
+                                    return <li>
+                                        <Link key={child.key} onClick={() => setCurrent(child.key)} >{child.props.title}</Link>
+                                    </li>
+                                })}
+                            </ul>
+
+                        </nav>
+                    </div>
+                    <div className="col-md-9">
+                        <section>{newChildren}</section>
+                    </div>
+                </div>
+            </section>
+
         </>
 
     )

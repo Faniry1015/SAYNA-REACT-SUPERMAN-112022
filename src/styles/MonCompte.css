@@ -7,3 +7,11 @@
     font-size: 85px;
     font-weight: bold;
 }
+.userStatus {
+    font-size: 1.3em;
+}
+
+.fa-circle-user {
+    position: relative;
+    top: 7px
+}
