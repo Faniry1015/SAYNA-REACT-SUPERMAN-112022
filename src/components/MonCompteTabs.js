@@ -14,10 +14,6 @@ export function Tabs({ children }) {
         return React.cloneElement(child, { selected: child.key === current });
     });
 
-    const handleTabChange = (tab) => {
-        
-    }
-
     //Logoff
     const navigate = useNavigate()
     const {logout} = UserAuth()

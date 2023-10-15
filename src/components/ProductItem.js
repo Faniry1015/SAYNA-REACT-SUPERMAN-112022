@@ -13,7 +13,7 @@ function ProductItem({ product, addToCart }) {
         }
     }
 
-    const { nom, imgUrl, description, categorie, prix } = product;
+    const { nom, imgUrl, prix } = product;
     return (
         <>
             <div className="product m-1 text-center">

@@ -52,7 +52,8 @@ function Signup() {
                 email: state.email,
                 adress: state.adress,
                 phone: state.phone,
-                password: state.password
+                password: state.password,
+                newsletter: false
             });
             navigate('/compte');
         } catch (e) {
