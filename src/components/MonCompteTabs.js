@@ -1,8 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import '../styles/MonCompteTabs.css'
+import { useNavigate } from 'react-router-dom';
+import { UserAuth } from '../context/AuthContext';
 
 export function Tabs({ children }) {
+    //Add user Info
     const childrenArray = (React.Children.toArray(children))
 
     const [current, setCurrent] = React.useState(childrenArray[0].key);
@@ -10,6 +13,23 @@ export function Tabs({ children }) {
     const newChildren = childrenArray.map((child) => {
         return React.cloneElement(child, { selected: child.key === current });
     });
+
+    const handleTabChange = (tab) => {
+        
+    }
+
+    //Logoff
+    const navigate = useNavigate()
+    const {logout} = UserAuth()
+
+    const logOff = async () => {
+      try {
+        await logout()
+        navigate('/login')
+      } catch (e) {
+        console.log(e)
+      }
+    }
 
     return (
         <>
@@ -19,12 +39,12 @@ export function Tabs({ children }) {
                         <nav className='monCompte__nav'>
                             <ul>
                                 {newChildren.map((child) => {
-                                    return <li>
-                                        <Link key={child.key} onClick={() => setCurrent(child.key)} >{child.props.title}</Link>
+                                    return <li key={child.key}>
+                                        <Link  onClick={() => setCurrent(child.key)} >{child.props.title}</Link>
                                     </li>
                                 })}
                             </ul>
-
+                            <button className="logoff" onClick={logOff}>Déconnecter</button>
                         </nav>
                     </div>
                     <div className="col-md-9">

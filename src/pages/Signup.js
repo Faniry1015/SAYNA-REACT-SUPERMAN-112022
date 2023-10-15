@@ -13,8 +13,9 @@ function Signup() {
         nom: "",
         prenom: "",
         email: "",
+        adress:"",
+        phone:"",
         password: "",
-        password2: "",
         checked: false,
         error: ""
     }
@@ -37,32 +38,35 @@ function Signup() {
 
     async function handleSubmit(e) {
         e.preventDefault()
-        if (password !== password2) {
-            return setState((state, props) => ({ ...state, error: 'Les mots de passes ne sont pas identiques' }))
-        }
-        /*On peut également utilisé le useRef
-         if (password !== passwordConfirmRef.current.value) {
-             return setState((state, props) => ({ ...state, error: 'Les mots de passes ne sont pas identiques' }))
-        }
 
-        setState((state, props) => ({...state, error:""}));*/
+         if (password !== passwordConfirmRef.current.value) {
+             setState((state, props) => ({ ...state, error: 'Les mots de passes saisies ne sont pas identiques' }))
+             alert(state.error)
+        }
+        setState((state, props) => ({...state, error:""}));
         try {
             await createUser(email, password);
-            await setDoc(doc(db, 'usersDetails', `id-${state.email}`), state);
+            await setDoc(doc(db, 'usersDetails', `${state.email}`), {
+                nom: state.nom,
+                prenom: state.prenom,
+                email: state.email,
+                adress: state.adress,
+                phone: state.phone,
+                password: state.password
+            });
             navigate('/compte');
         } catch (e) {
             setState((state, props) => ({ ...state, error: e.message }));
         }
     }
 
-    const { nom, prenom, email, password, password2, checked, error } = state
+    const { nom, prenom, email, adress, phone, password, checked, error } = state
 
     return (
         <>
             <section id='hero'>
                 <div className="hero-signup-image">
                     <div className="container">
-                        {/* <h1 className="herotitle text-uppercase text-white"></h1> */}
                         <section className="inscription">
                             <div className="container formulaire">
                                 <div className="head text-center">
@@ -87,12 +91,20 @@ function Signup() {
                                             <input type="email" className="form-control" id="email" name='email' placeholder='email' value={email} onChange={handleChange} />
                                         </div>
                                         <div className="mb-3">
+                                            <label htmlFor="phone" className="form-label">Téléphone</label>
+                                            <input type="tel" className="form-control" id="phone" name='phone' placeholder='téléphone' value={phone} onChange={handleChange} />
+                                        </div>
+                                        <div className="mb-3">
+                                            <label htmlFor="adress" className="form-label">Adresse</label>
+                                            <input type="text" className="form-control" id="adress" name='email'placeholder='adresse' value={adress} onChange={handleChange} />
+                                        </div>
+                                        <div className="mb-3">
                                             <label htmlFor="password" className="form-label">Mot de passe</label>
                                             <input type="password" className="form-control" id="password" placeholder='mot de passe' value={password} onChange={handleChange} />
                                         </div>
                                         <div className="mb-3">
                                             <label htmlFor="passwordConfirm" className="form-label">Confirmez votre mot de passe</label>
-                                            <input type="password" ref={passwordConfirmRef} className="form-control" id="password2" placeholder='mot de passe' value={password2} onChange={handleChange} />
+                                            <input type="password" ref={passwordConfirmRef} className="form-control" id="password2" placeholder='mot de passe' />
                                         </div>
                                         <div className="mb-3">
                                             <div className='acceptanceContainer'>
