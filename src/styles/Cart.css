@@ -33,3 +33,11 @@
     width: 25%;
     border: solid 3px #7C7675;
 }
+
+.sous-total {
+    width: 100%;
+}
+
+.sous-total h3 {
+    color: #bebebe;
+}

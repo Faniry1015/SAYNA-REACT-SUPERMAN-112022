@@ -1,0 +1,39 @@
+.price p {
+font-size: x-large;
+font-weight: bold;
+color: #bebebe;
+margin-right: 1.5em;
+}
+
+.qte {
+    display: flex;  
+    background-color: rgb(212, 212, 212);
+    color: black;
+    min-height: 50px
+}
+
+.qte div {
+    display: flex;
+    align-items: center;
+}
+
+.deleteItem {
+    padding: 5px;
+    margin-left: 1em;
+    background-color: #d4d4d4;
+    color : #535353;
+    border-radius: 50%;
+
+
+}
+
+.deleteItem:hover,
+.deleteItem:active {
+color: red;
+}
+
+.changeQtt,
+.changeQtt {
+    cursor: pointer;
+}
+

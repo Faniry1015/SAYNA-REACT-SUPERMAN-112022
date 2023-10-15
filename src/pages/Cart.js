@@ -7,11 +7,10 @@ import { db } from '../firebase-config';
 import CartProducts from '../components/CartProducts';
 
 function Cart() {
-  console.log('cart')
   const [cartProducts, setCartProducts] = useState([])
-  const [state, setState] = useState({ 
-    totalPayment: 0, 
-    totalArticles: 0 
+  const [state, setState] = useState({
+    totalPayment: 0,
+    totalArticles: 0
   })
 
   const { user } = UserAuth()
@@ -25,7 +24,6 @@ function Cart() {
         productsCartArray.push({ id: doc.id, ...doc.data() })
       })
       setCartProducts([...productsCartArray])
-      console.log('render')
     } else {
       alert('Connectez vous à un compte pour pouvoir faire des achats')
     }
@@ -38,10 +36,26 @@ function Cart() {
   //Gestion des produits dans le panier
   //ENCORE DES BUGS DANS DELETE
   const deleteItem = async function (product) {
-    // const leftProducts = cartProducts.filter((item) => item.nom !== product.nom)
-    // setCartProducts([...leftProducts])
-    await deleteDoc(doc(db, `Cart-${user.uid}`, product.nom))
-    getAllCartProduct()
+    const product_cart = product
+    product.quantité = 0
+    product_cart.prixTotalArticles = product_cart.quantité * product_cart.prix
+
+    //Mise à jour de l'état
+    const changedProducts = cartProducts.map((item) => {
+      if (item.nom === product.nom) {
+        return { ...product, quantité: product_cart.quantité, prixTotalArticles: product_cart.prixTotalArticles }
+      } else {
+        return item
+      }
+    })
+    setCartProducts([...changedProducts])
+    //Mise à jour de la BDD 
+    try {
+      await deleteDoc(doc(db, `Cart-${user.uid}`, product.nom))
+    } catch (e) {
+      console.log(e.message)
+      alert('Erreur lors de la mise à jour des éléments du panier en ligne, vérifier votre connexion internet et actualiser la page:')
+    }
   }
 
   const qttChange = async function (product, change) {
@@ -65,7 +79,6 @@ function Cart() {
     })
 
     setCartProducts([...changedProducts])
-
     //Mise à jour de la BDD 
     try {
       const cartProductRef = doc(db, `Cart-${user.uid}`, product.nom)
@@ -74,7 +87,8 @@ function Cart() {
         prixTotalArticles: product_cart.prixTotalArticles
       });
     } catch (e) {
-      alert('Impossible de mettre à jour les articles du panier:', e.message)
+      console.log(e.message)
+      alert('Erreur lors de la mise à jour des éléments du panier en ligne, vérifier votre connexion internet et actualiser la page:')
     }
   }
 
@@ -96,6 +110,17 @@ function Cart() {
     setState((state, props) => ({ totalPayment: sumPayement, totalArticles: sumArticles }))
   }, [cartProducts])
 
+  function padSingleDigit(number) {
+    const numberString = number.toString();
+  
+    if (numberString.length === 1) {
+      return '0' + numberString;
+    }
+  
+    return numberString;
+  }
+
+
 
   return (<>
     {/* {JSON.stringify(cartProducts)} */}
@@ -104,7 +129,7 @@ function Cart() {
         <div className="d-flex justify-content-between">
           <nav>
             <ul className="breadcrumb">
-              <li className="breadcrumb-item"><Link to="/eshop" >E-shop </Link></li><span>&nbsp;/&nbsp;</span> 
+              <li className="breadcrumb-item"><Link to="/eshop" >E-shop </Link></li><span>&nbsp;/&nbsp;</span>
               <li className="breadcremb-item active"><span className='cartInactiveLabel'>
                 Panier
               </span>
@@ -122,8 +147,8 @@ function Cart() {
 
       <div className="sous-total container-largeur">
         <h3 className="float-end">
-          <strong>Nombre total d'Articles : {state.totalArticles}</strong> <br />
-          <strong>Total à payer : {state.totalPayment}€</strong>
+          <span>Nombre total d'Articles : </span><strong> {padSingleDigit(state.totalArticles)}</strong> <br />
+          <span>Total à payer :</span><strong> {padSingleDigit(state.totalPayment)}€</strong>
         </h3>
       </div>
     </div>
@@ -138,8 +163,6 @@ function Cart() {
       </Link>
     </section>
     {cartProducts.length <= 0 && <>
-      <br />
-      <br />
       <h1 className="text-center">Ton panier est vide</h1>
       <div className="container-largeur">
         <Link to='/eshop'>

@@ -1,15 +1,20 @@
 import React, { useState, useRef } from 'react'
 import { UserAuth } from '../context/AuthContext'
+import '../styles/CartItem.css'
 
 
 function CartItem({ cartProductItem, deleteItem, qttChange }) {
     const { user } = UserAuth()
     const [itemsState, setItemsState] = useState(cartProductItem)
 
+    const deletedItem = useRef(null)
+
     const handleCartProduct = (e) => {
         if (user) {
             switch (e.target.id) {
                 case 'delete': deleteItem(cartProductItem)
+                    deletedItem.current.classList.remove('d-flex')
+                    deletedItem.current.style.display = 'none'
                     break
                 case 'increase': qttChange(cartProductItem, 'increase')
                     break
@@ -18,15 +23,15 @@ function CartItem({ cartProductItem, deleteItem, qttChange }) {
                 default: console.log('Erreur de gestion du panier')
                     break
             }
-            
-            setItemsState({...cartProductItem})
+
+            setItemsState({ ...cartProductItem })
         }
     }
 
     const { nom, imgUrl, id, prixTotalArticles, quantité } = itemsState
     return (
         <>
-            <div className="d-flex justify-content-between align-items-center border-product">
+            <div className="d-flex justify-content-between align-items-center border-product" ref={deletedItem}>
                 <div className="product d-flex align-items-center">
                     <img className='cartitemImg' src={imgUrl} alt={nom} />
                     <div className="m-4">
@@ -35,19 +40,19 @@ function CartItem({ cartProductItem, deleteItem, qttChange }) {
                     </div>
                 </div>
                 <div className='price'>
-                    <p>{prixTotalArticles}€</p>
+                    <p>{prixTotalArticles.toFixed(2)}€</p>
                 </div>
-                <div className="qte bg-secondary text-center">
-                    <div id='decrease' onClick={handleCartProduct}>
-                        <i name='decrease' className="fa-solid fa-minus mx-4" ></i>
+                <div className="qte text-center">
+                    <div id='decrease' className='changeQtt' onClick={handleCartProduct}>
+                        <i className="fa-solid fa-minus mx-4 changeQtt" ></i>
                     </div>
-                    <span className="fs-5">{quantité}</span>
-                    <div id='increase' onClick={handleCartProduct}>
-                        <i name='increase' className="fa-regular fa-plus mx-4"></i>
+                    <div className="fs-5">{quantité}</div>
+                    <div id='increase' className='changeQtt' onClick={handleCartProduct}>
+                        <i className="fa-solid fa-plus mx-4 changeQtt"></i>
                     </div>
                 </div>
-                <div>
-                    <i name='delete' className="fa-solid fa-2x fa-xmark" id='delete' onClick={handleCartProduct}></i>
+                <div className='deleteItem changeQtt'>
+                    <i name='delete' className="fa-solid fa-3x fa-xmark changeQtt" id='delete' onClick={handleCartProduct}></i>
                 </div>
             </div>
         </>

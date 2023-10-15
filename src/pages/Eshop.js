@@ -62,8 +62,6 @@ function Eshop() {
    const [search, setSearch] = useState('')
 
    const [maxPrice, setMaxPrice] = useState(null)
-   const [categorieChange, setCategorieChange] = useState([])
-   const [universChange, setUniversChange] = useState([])
 
    const [filteredData, setFilteredData] = useState({ prixMax: maxPrice, categories: [], univers: [] })
 
@@ -98,7 +96,6 @@ function Eshop() {
       try {
          //Pour éviter qu'un produit puisse être ajouter plusieurs fois dans le panier via eshop
          await setDoc(doc(db, `Cart-${user.uid}`, product.nom), product_cart);
-         console.log(product)
       } catch (e) {
          console.log(e.message)
       }
@@ -163,7 +160,6 @@ function Eshop() {
       setFilteredData(filter);
    };
 
-
    return (
       <>
          <HeroShop />
@@ -189,9 +185,6 @@ function Eshop() {
                   <Checkboxfilter dataFilterArray={categorieArray} onCheckChange={handlefilterChange}>Catégorie</Checkboxfilter>
                   <Checkboxfilter id='univers' dataFilterArray={universArray} onCheckChange={handlefilterChange}>Univers</Checkboxfilter>
                </div>
-               {/* 'FILTEREDDATA'{JSON.stringify(filteredData)}
-               'FILTEREDDATA'{JSON.stringify(products)} */}
-               {/* {JSON.stringify(visibleProducts)} */}
                <div className="col-md-9">
                   <section id="products">
                      {
@@ -204,7 +197,7 @@ function Eshop() {
                      {
                         products.length < 1 && (
                            <div className="productLoader">
-                              <h6><i className="fa-solid fa-spinner fa-spin-pulse fa-10x" style={{ color: "#e1e100", }}></i></h6>
+                              <h6><i className="fa-solid fa-spinner fa-spin-pulse fa-10x" style={{ color: "#B11313cc", }}></i></h6>
                            </div>
                         )
                      }
