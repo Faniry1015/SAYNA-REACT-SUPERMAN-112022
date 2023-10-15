@@ -1,0 +1,9 @@
+.monCompte__header {
+    margin: 250px 10% 200px
+}
+
+.monCompte__header h1 {
+    font-family: 'Adventure';
+    font-size: 85px;
+    font-weight: bold;
+}

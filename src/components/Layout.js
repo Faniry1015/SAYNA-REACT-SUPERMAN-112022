@@ -6,8 +6,7 @@ import Header from "./Header.js";
 import Footer from "./Footer.js";
 import home from "../assets/images/img1.png"
 import eshop from "../assets/images/img20.png"
-// import game from "../assets/bg/bg_5.png"
-// import compte from "../assets/bg/bg_3.png"
+import compte from "../assets/images/img37.png"
 import signup from "../assets/images/img19.png"
 
 function Layout() {
@@ -24,8 +23,8 @@ function Layout() {
     bgImg = '';
     bgClass =''
   }else if (location.pathname === '/compte') {
-    bgImg = signup;
-    bgClass = 'bgRadiant'
+    bgImg = compte;
+    bgClass = 'compteRadiant'
   } else if (location.pathname === '/signup') {
     bgImg = signup;
     bgClass = 'bgRadiant'

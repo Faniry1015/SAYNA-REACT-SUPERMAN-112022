@@ -44,15 +44,15 @@ function CartItem({ cartProductItem, deleteItem, qttChange }) {
                 </div>
                 <div className="qte text-center">
                     <div id='decrease' className='changeQtt' onClick={handleCartProduct}>
-                        <i className="fa-solid fa-minus mx-4 changeQtt" ></i>
+                        -
                     </div>
                     <div className="fs-5">{quantité}</div>
                     <div id='increase' className='changeQtt' onClick={handleCartProduct}>
-                        <i className="fa-solid fa-plus mx-4 changeQtt"></i>
+                        +
                     </div>
                 </div>
-                <div className='deleteItem changeQtt'>
-                    <i name='delete' className="fa-solid fa-3x fa-xmark changeQtt" id='delete' onClick={handleCartProduct}></i>
+                <div className='deleteItem'>
+                    <i name='delete' className="fa-solid fa-3x fa-xmark" id='delete' onClick={handleCartProduct}></i>
                 </div>
             </div>
         </>

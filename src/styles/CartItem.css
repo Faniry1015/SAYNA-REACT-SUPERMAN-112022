@@ -21,7 +21,7 @@ margin-right: 1.5em;
     padding: 5px;
     margin-left: 1em;
     background-color: #d4d4d4;
-    color : #535353;
+    color : #a5a3a3;
     border-radius: 50%;
 
 
@@ -29,11 +29,12 @@ margin-right: 1.5em;
 
 .deleteItem:hover,
 .deleteItem:active {
-color: red;
+color: #B11313;
 }
 
-.changeQtt,
 .changeQtt {
     cursor: pointer;
+    font-size: x-large;
+    padding: 0 15px;
 }
 

@@ -31,6 +31,8 @@
 
 .filtersContainer h3 {
     font-family: 'Adventure';
+    font-size: 85px;
+    font-weight: bold;
 }
 
 .fa-cart-shopping:hover {
