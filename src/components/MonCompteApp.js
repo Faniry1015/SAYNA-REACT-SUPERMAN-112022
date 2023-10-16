@@ -5,7 +5,7 @@ import MonCompteInfoPers from './MonCompteInfoPers.js'
 function MonCompteApp() {
   return (
     <Tabs>
-        <MonCompteInfoPers title="Mes informations personnels" />
+        <MonCompteInfoPers title="Mes informations" />
         <Tab title="Mes avis">
 Avis
         </Tab>

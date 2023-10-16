@@ -1,13 +1,14 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { db } from '../firebase-config';
 import { UserAuth } from '../context/AuthContext'
 import { doc, getDoc, updateDoc } from "firebase/firestore";
+import '../styles/MonCompteInfoPers.css'
 
 function MonCompteInfoPers({ title, selected }) {
 
     const { user } = UserAuth()
 
-    const [userData, setUserData] = useState({})
+    const [userData, setUserData] = useState({newsletter: false})
 
     const getUserInfo = async () => {
         if (user.email) {
@@ -50,10 +51,10 @@ function MonCompteInfoPers({ title, selected }) {
 
     const { nom, prenom, email, adress, phone, password, newsletter } = userData
     return (
-        <>
-            {JSON.stringify(userData)}
-            <section className='monCompte__infoPersContainer' hidden={!selected}>
-                <h3>{title}</h3>
+        <div hidden={!selected} className='monCompte__Container'>
+            {/* {JSON.stringify(userData)} */}
+            <section className='monCompte__infoPersContainer'>
+                <h3>Informations personnelles</h3>
                 <hr />
                 <div>
                     <ul>
@@ -67,7 +68,7 @@ function MonCompteInfoPers({ title, selected }) {
                     <button>Modifier</button>
                 </div>
             </section>
-            <section>
+            <section className='monCompte__newsletterContainer'>
                 <h3>NewsLetter</h3>
                 <hr />
                 <p>Abonnez vous à la newsletter ! Ne ratez pas nos offres exceptionnels sur votre article préféré</p>
@@ -80,7 +81,7 @@ function MonCompteInfoPers({ title, selected }) {
                     </label>
                 </div>
             </section>
-        </>
+        </div>
 
     )
 }

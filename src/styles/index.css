@@ -53,7 +53,7 @@ h2 {
 }
 
 section {
-  margin : 50px 10%
+  margin : 50px 2% 50px 10%
 }
 
 /* Effet fadeIn sur tous les éléments */
@@ -125,7 +125,7 @@ button, .btnContain__btn {
   padding: 10px;
   margin: 0 10px;
   border-radius: 10px;
-  background: var(--myBlue);
+  background: linear-gradient(80deg, #07338Caa, #B11313aa);
   border: none;
 }
 

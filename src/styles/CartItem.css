@@ -38,3 +38,10 @@ color: #B11313;
     padding: 0 15px;
 }
 
+.add-to-cart {
+    background: #07338Caa;
+}
+.add-to-cart:hover {
+    background: #07338C;
+}
+

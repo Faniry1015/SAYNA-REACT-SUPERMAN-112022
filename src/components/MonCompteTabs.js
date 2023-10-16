@@ -31,19 +31,19 @@ export function Tabs({ children }) {
         <>
             <section className='monCompte__mainSection'>
                 <div className="row">
-                    <div className="col-md-3">
+                    <div className="col-md-4">
                         <nav className='monCompte__nav'>
                             <ul>
                                 {newChildren.map((child) => {
                                     return <li key={child.key}>
-                                        <Link  onClick={() => setCurrent(child.key)} >{child.props.title}</Link>
+                                        <Link  onClick={() => setCurrent(child.key)} className={child.selected}>{child.props.title}</Link>
                                     </li>
                                 })}
                             </ul>
-                            <button className="logoff" onClick={logOff}>Déconnecter</button>
+                            <button className="logoff" onClick={logOff}>Déconnexion</button>
                         </nav>
                     </div>
-                    <div className="col-md-9">
+                    <div className="col-md-8">
                         <section>{newChildren}</section>
                     </div>
                 </div>

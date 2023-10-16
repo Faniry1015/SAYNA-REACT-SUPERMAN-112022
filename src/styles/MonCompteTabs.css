@@ -1,3 +1,10 @@
+.row {
+    margin-left: 0px;
+}
+.row section {
+    margin: 0 2% 0 5%;
+}
+
 .monCompte__nav a {
     text-decoration:none;
 }
@@ -9,5 +16,9 @@
 
 .monCompte__nav li {
     list-style-type: none;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
+}
+
+.monCompte__nav .active {
+    text-decoration: underline;
 }

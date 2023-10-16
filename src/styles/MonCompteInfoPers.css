@@ -1,0 +1,16 @@
+li {
+    list-style-type: none;
+    margin-bottom: 10px;
+}
+
+ul {
+    padding: 0;
+}
+
+h3 {
+    font-family: 'Adventure';
+}
+
+.monCompte__Container .monCompte__infoPersContainer {
+    margin-bottom: 100px;
+}
