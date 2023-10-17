@@ -22,3 +22,37 @@
 .monCompte__nav .active {
     text-decoration: underline;
 }
+
+.monCompte__popupBoxContainer {
+    height: 80% ;
+    width: 80%;
+    position: fixed;
+    top: 10%;
+    left: 10%;
+    background: radial-gradient(at 150% 50%, #b4202e, #0f3b55 70%);
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+
+.monCompte__popupBoxContainer div {
+    width: 60%;
+    text-align: center;
+    font-size: 2.5em;
+}
+
+.close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.close-button:hover {
+    color: #b4202e
+}
+
+.popup-content button {
+    height: 75px;
+    font-size: 0.6em;
+}

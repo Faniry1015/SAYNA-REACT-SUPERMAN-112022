@@ -167,13 +167,13 @@ function Eshop() {
             <img src={toBottomArrow} alt="Bottom Arrow" />
          </div>
          <section className="container pt-5">
-            <div className="float-end">
+            <div className="float-end mb-5">
                <Link to='/eshop/cart'>
                   <i className="fa-solid fa-4x fa-fade fa-cart-shopping"></i>
                </Link>
             </div>
          </section>
-         <div className="container">
+         <section className="productsMainContainer mt-5">
             <div className="row">
                <div className="col-md-3 filtersContainer">
                   <div className="mb-5">
@@ -204,7 +204,7 @@ function Eshop() {
                   </section>
                </div>
             </div>
-         </div>
+         </section>
       </>
    );
 }

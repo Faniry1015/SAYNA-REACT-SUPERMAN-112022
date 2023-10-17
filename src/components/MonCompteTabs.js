@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import '../styles/MonCompteTabs.css'
 import { useNavigate } from 'react-router-dom';
@@ -9,6 +9,7 @@ export function Tabs({ children }) {
     const childrenArray = (React.Children.toArray(children))
 
     const [current, setCurrent] = React.useState(childrenArray[0].key);
+    const [isOpen, setIsOpen] = useState(false);
 
     const newChildren = childrenArray.map((child) => {
         return React.cloneElement(child, { selected: child.key === current });
@@ -16,16 +17,21 @@ export function Tabs({ children }) {
 
     //Logoff
     const navigate = useNavigate()
-    const {logout} = UserAuth()
+    const { logout } = UserAuth()
 
-    const logOff = async () => {
-      try {
-        await logout()
-        navigate('/login')
-      } catch (e) {
-        console.log(e)
-      }
-    }
+    const togglePopup = () => {
+        setIsOpen(!isOpen);
+    };
+
+    const handleConfirm = async () => {
+        try {
+            await logout()
+            navigate('/login')
+        } catch (e) {
+            console.log(e)
+        }
+        togglePopup();
+    };
 
     return (
         <>
@@ -36,11 +42,11 @@ export function Tabs({ children }) {
                             <ul>
                                 {newChildren.map((child) => {
                                     return <li key={child.key}>
-                                        <Link  onClick={() => setCurrent(child.key)} className={child.selected}>{child.props.title}</Link>
+                                        <Link onClick={() => setCurrent(child.key)} className={child.selected}>{child.props.title}</Link>
                                     </li>
                                 })}
                             </ul>
-                            <button className="logoff" onClick={logOff}>Déconnexion</button>
+                            <button className="logoff" onClick={togglePopup}>Déconnexion</button>
                         </nav>
                     </div>
                     <div className="col-md-8">
@@ -48,7 +54,16 @@ export function Tabs({ children }) {
                     </div>
                 </div>
             </section>
-
+            {isOpen && (<div className='monCompte__popupBoxContainer'>
+                <span className="close-button" onClick={togglePopup}>
+                <i class="fa-solid fa-3x fa-xmark"></i>
+                </span>
+                <div className="popup-content">
+                    <p>Êtes-vous sûr de vouloir vous déconnecter ?</p>
+                    <button onClick={handleConfirm}>Confirmer</button>
+                </div>
+            </div>
+            )}
         </>
 
     )

@@ -52,7 +52,7 @@ function CartItem({ cartProductItem, deleteItem, qttChange }) {
                     </div>
                 </div>
                 <div className='deleteItem'>
-                    <i name='delete' className="fa-solid fa-3x fa-xmark" id='delete' onClick={handleCartProduct}></i>
+                    <i name='delete' className="fa-solid fa-2x fa-xmark" id='delete' onClick={handleCartProduct}></i>
                 </div>
             </div>
         </>

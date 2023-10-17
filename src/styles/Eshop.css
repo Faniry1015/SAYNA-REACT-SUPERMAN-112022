@@ -19,8 +19,6 @@
 }
 
 .filtersContainer {
-    position:sticky;
-    top: 0px;
     height: fit-content;
     font-size: 0.9em;
 }
