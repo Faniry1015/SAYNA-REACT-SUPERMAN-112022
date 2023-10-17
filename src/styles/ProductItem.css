@@ -35,3 +35,7 @@
 .addBtnContainer button {
     margin: 0px
 }
+
+.itemContainer {
+    cursor: pointer;
+}

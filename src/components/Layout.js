@@ -31,9 +31,12 @@ function Layout() {
   } else if (location.pathname === '/login') {
     bgImg = signup
     bgClass = 'bgRadiant'
-  } else {
+  } else if (location.pathname === '/') {
     bgImg = home
     bgClass =''
+  } else {
+    bgImg= ''
+    bgClass = ''
   }
 
   return (

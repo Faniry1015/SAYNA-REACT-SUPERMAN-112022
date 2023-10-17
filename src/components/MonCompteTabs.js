@@ -56,7 +56,7 @@ export function Tabs({ children }) {
             </section>
             {isOpen && (<div className='monCompte__popupBoxContainer'>
                 <span className="close-button" onClick={togglePopup}>
-                <i class="fa-solid fa-3x fa-xmark"></i>
+                <i className="fa-solid fa-3x fa-xmark"></i>
                 </span>
                 <div className="popup-content">
                     <p>Êtes-vous sûr de vouloir vous déconnecter ?</p>

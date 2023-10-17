@@ -145,7 +145,6 @@ function Eshop() {
    };
 
    const updateVisibleProducts = (filter) => {
-      // Appliquer les filtres combinés aux produits
       const filteredProducts = products.filter(product => {
          const isPriceFiltered = filter.prixMax !== null ? product.prix <= filter.prixMax : true;
          const isCategoryFiltered = filter.categories.length === 0 || filter.categories.includes(product.categorie);

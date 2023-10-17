@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./Layout";
 import Home from "../pages/Home.js";
 import Eshop from "../pages/Eshop.js";
+import ProductDetail from "../pages/ProductDetail";
 import MonCompte from "../pages/MonCompte.js";
 import NotFound from "../pages/NotFound";
 import Signup from "../pages/Signup";
@@ -22,6 +23,7 @@ function App() {
                 <Route index element={<Home />} />
                 <Route path="eshop" element={<Eshop />} />
                 <Route path="eshop/cart" element={<Cart />} />
+                <Route path="eshop/productDetail" element={<ProductDetail />} />
                 <Route path="compte" element={
                    <ProtectedRoutes route="login">
                       <MonCompte />

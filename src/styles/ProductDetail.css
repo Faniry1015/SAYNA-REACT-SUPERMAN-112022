@@ -1,0 +1,13 @@
+.productName h2{
+font-size: 4em;
+}
+
+.priceAndStock h3 {
+    font-family: Cantarell;
+    font-size: 3em;
+    font-weight: bold;
+}
+
+.productImgContainer img {
+    width: 100%
+}
