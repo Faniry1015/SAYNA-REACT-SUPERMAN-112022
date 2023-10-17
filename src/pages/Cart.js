@@ -123,7 +123,6 @@ function Cart() {
 
 
   return (<>
-    {/* {JSON.stringify(cartProducts)} */}
     <div className="container container-largeur mb-5">
       <div className="row mb-5 mt-5">
         <div className="d-flex justify-content-between">
@@ -156,7 +155,7 @@ function Cart() {
       <Link to='/eshop'>
         <button className="mx-2">Continuer mes achats</button>
       </Link>
-      <Link to='/eshop/cart'>
+      <Link to='/eshop/cart/orderRecap'>
         <button className="mx-2">
           Passer commande
         </button>
