@@ -8,52 +8,76 @@ import OrderProducts from '../components/OrderProducts.js';
 
 function OrderRecap() {
 
-    const [cartProducts, setCartProducts] = useState([])
+    const [orderProducts, setOrderProducts] = useState([])
     const [state, setState] = useState({
-        totalPayment: 0,
-        totalArticles: 0
+        subTotalState: 0,
+        reduction: 0,
+        taxe: 20,
+        totalPayement: 0,
     })
-    const codePromoRef = createRef()
 
+    const codePromoRef = createRef()
+    const [allCodePromo, setAllCodePromo] = useState([])
     const [codePromo, setCodePromo] = useState('')
+    const [codePromoValue, setCodePromoValue] = useState(0)
 
     const { user } = UserAuth()
 
     //Récupérer tous le panier depuis firebase
-    const getAllCartProduct = async function () {
+    const getAllOrderProduct = async function () {
         if (user) {
-            const productsCartArray = []
+            const productsOrderArray = []
             const querySnapShot = await getDocs(collection(db, `Cart-${user.uid}`));
             querySnapShot.forEach((doc) => {
-                productsCartArray.push({ id: doc.id, ...doc.data() })
+                productsOrderArray.push({ id: doc.id, ...doc.data() })
             })
-            setCartProducts([...productsCartArray])
+            setOrderProducts([...productsOrderArray])
         } else {
             alert('Connectez vous à un compte pour pouvoir faire des achats')
         }
+
+        //get all code promo
+        const querySnapshot = await getDocs(collection(db, "codePromo"));
+        const allCodePromoArray = []
+        querySnapshot.forEach((doc) => {
+            allCodePromoArray.push({code: doc.id, value: doc.data().value})
+            setAllCodePromo(allCodePromoArray)
+        });
+        console.log('Les codes promos sont :', allCodePromoArray)
     }
 
     useEffect(function () {
-        getAllCartProduct()
+        getAllOrderProduct()
     }, [user])
 
     //Modification des sous-totaux
     useEffect(() => {
-        const totalPaiementArray = cartProducts.map((product) => {
+        const subTotal = orderProducts.map((product) => {
             return product.prixTotalArticles
-        })
-        const totalArticlesArray = cartProducts.map((product) => {
-            return product.quantité
         })
 
         const add = function (arr) {
             return arr.reduce((a, b) => a + b, 0);
         };
 
-        let sumPayement = add(totalPaiementArray);
-        let sumArticles = add(totalArticlesArray);
-        setState((state, props) => ({ totalPayment: sumPayement, totalArticles: sumArticles }))
-    }, [cartProducts])
+        const sumSubTotal = add(subTotal);
+        function reductionAmount() {
+            if (codePromoValue !== 0) {
+                return (codePromoValue * sumSubTotal / 100)
+            } else {
+                return 0
+            }
+            
+        } 
+        const totalPayement = (sumSubTotal - reductionAmount()) + (sumSubTotal - reductionAmount()) / state.taxe
+
+
+        setState((state, props) => ({taxe : 20, subTotalState: sumSubTotal,
+            reduction: reductionAmount(),
+            totalPayement: totalPayement,
+        }))
+
+    }, [orderProducts, codePromoValue,state.reduction])
 
     function padSingleDigit(number) {
         const numberString = number.toString();
@@ -66,10 +90,20 @@ function OrderRecap() {
     }
 
     //Gérer le code promo
-    const handleCodePromoSubmit = (e) => {
+    const handleCodePromoSubmit = async (e) => {
         e.preventDefault()
         setCodePromo(codePromoRef.current.value)
     }
+
+    useEffect(()=> {
+        allCodePromo.find((element) => {
+            if (element.code === codePromo) {
+                setCodePromoValue(element.value)
+            }
+        })
+    }, [codePromo])
+
+
     return (<>
         <div className="container container-largeur mb-5">
             <div className="row mb-5 mt-5">
@@ -78,9 +112,9 @@ function OrderRecap() {
                         <ul className="breadcrumb">
                             <li className="breadcrumb-item"><Link to="/eshop" >E-shop </Link></li><span>&nbsp;/&nbsp;</span>
                             <li className="breadcremb-item">
-                                <Link to="/eshop/cart" >Panier</Link>
+                                <Link to="/eshop/order" >Panier</Link>
                             </li><span>&nbsp;/&nbsp;</span>
-                            <li className="breadcremb-item active"><span className='cartInactiveLabel'>
+                            <li className="breadcremb-item active"><span className='orderInactiveLabel'>
                                 Récapitulatif de la commande
                             </span>
                             </li>
@@ -93,16 +127,21 @@ function OrderRecap() {
                     <h3>Commande</h3>
                 </div>
                 <div className="product-box">
-                    <OrderProducts cartProducts={cartProducts} />
+                    <OrderProducts orderProducts={orderProducts} />
                 </div>
-                <div className="codePromoContainer d-flex align-items-center my-4">
-                    <form onSubmit={handleCodePromoSubmit}>
-                        <input type="text" name="codePromo" id="codePromo" className='codePromoInput' placeholder='Code promo' ref={codePromoRef}/>
+                <div className="codePromoContainer my-4">
+                {/* 'allCodePromo' : {JSON.stringify(allCodePromo)} <br />
+                'codePromo': {JSON.stringify( codePromo)}
+                <br />
+                'codePromoValue': {JSON.stringify( codePromoValue)} */}
+                    <form className='d-flex align-items-center' id='codePromoForm' onSubmit={handleCodePromoSubmit}>
+                        <input type="text" name="codePromo" id="codePromo" className='codePromoInput px-1' placeholder='Code promo' ref={codePromoRef} />
                         <button type='submit' className='addCodePromoBtn' placeholder='Code Promo'>Ajouter</button>
                     </form>
 
                 </div>
                 <hr />
+                {/* {JSON.stringify(state)} */}
                 <div className="sous-total container-largeur">
                     <div className="d-flex justify-content-between">
                         <div>
@@ -112,19 +151,19 @@ function OrderRecap() {
                         </div>
                         <div>
                             <h3>
-                                {padSingleDigit(state.totalPayment)}€
+                                {padSingleDigit(state.subTotalState.toFixed(2))}€
                             </h3>
                         </div>
                     </div>
                     <div className="d-flex justify-content-between">
                         <div>
                             <h4>
-                                Réduction
+                                Réduction ({codePromoValue}%)
                             </h4>
                         </div>
                         <div>
                             <h3>
-                                {padSingleDigit(state.totalPayment / 10)}€
+                                {padSingleDigit(state.reduction.toFixed(2))}€
                             </h3>
                         </div>
                     </div>
@@ -136,7 +175,7 @@ function OrderRecap() {
                         </div>
                         <div>
                             <h3>
-                                20%
+                                {state.taxe.toFixed(2)}%
                             </h3>
                         </div>
                     </div>
@@ -149,7 +188,7 @@ function OrderRecap() {
                         </div>
                         <div>
                             <h3>
-                                {padSingleDigit(state.totalPayment)}€
+                                {padSingleDigit(state.totalPayement.toFixed(2))}€
                             </h3>
                         </div>
                     </div>
@@ -161,7 +200,7 @@ function OrderRecap() {
             <Link to='/eshop'>
                 <button className="mx-2">Retourner au catalogue</button>
             </Link>
-            <Link to='/eshop/cart'>
+            <Link to='/eshop/order'>
                 <button className="mx-2">
                     Continuer vers paiement
                 </button>

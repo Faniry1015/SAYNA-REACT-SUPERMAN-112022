@@ -16,5 +16,8 @@
     border-radius: 0px;
     border: none;
     background-color: linear-gradient(to right, #19587D, #B11313);
+}
 
+#codePromoForm {
+background: none;
 }
