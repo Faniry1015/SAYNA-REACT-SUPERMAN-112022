@@ -1,0 +1,20 @@
+.codePromoInput {
+    height: 40px;
+}
+
+.addCodePromoBtn {
+    height: 40px;
+    background: none;
+    border: solid 2px;
+    border-image: linear-gradient(to right, #19587D, #B11313);
+    border-image-slice: 1;
+
+}
+
+.addCodePromoBtn:hover {
+    height: 40px;
+    border-radius: 0px;
+    border: none;
+    background-color: linear-gradient(to right, #19587D, #B11313);
+
+}

@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, createRef } from 'react'
 import { Link } from 'react-router-dom'
-import '../styles/Cart.css'
-import { collection, getDocs, doc, updateDoc, deleteDoc } from "firebase/firestore";
+import '../styles/OrderRecap.css'
+import { collection, getDocs } from "firebase/firestore";
 import { UserAuth } from '../context/AuthContext';
 import { db } from '../firebase-config';
 import OrderProducts from '../components/OrderProducts.js';
@@ -13,6 +13,9 @@ function OrderRecap() {
         totalPayment: 0,
         totalArticles: 0
     })
+    const codePromoRef = createRef()
+
+    const [codePromo, setCodePromo] = useState('')
 
     const { user } = UserAuth()
 
@@ -61,6 +64,12 @@ function OrderRecap() {
 
         return numberString;
     }
+
+    //Gérer le code promo
+    const handleCodePromoSubmit = (e) => {
+        e.preventDefault()
+        setCodePromo(codePromoRef.current.value)
+    }
     return (<>
         <div className="container container-largeur mb-5">
             <div className="row mb-5 mt-5">
@@ -86,9 +95,12 @@ function OrderRecap() {
                 <div className="product-box">
                     <OrderProducts cartProducts={cartProducts} />
                 </div>
-                <div className="codePromoContainer my-4">
-                    <input type="text" name="codePromo" id="codePromo" />
-                    <button className='addCodePromoBtn' placeholder='Code Promo'>Ajouter</button>
+                <div className="codePromoContainer d-flex align-items-center my-4">
+                    <form onSubmit={handleCodePromoSubmit}>
+                        <input type="text" name="codePromo" id="codePromo" className='codePromoInput' placeholder='Code promo' ref={codePromoRef}/>
+                        <button type='submit' className='addCodePromoBtn' placeholder='Code Promo'>Ajouter</button>
+                    </form>
+
                 </div>
                 <hr />
                 <div className="sous-total container-largeur">
