@@ -112,7 +112,7 @@ function OrderRecap() {
                         <ul className="breadcrumb">
                             <li className="breadcrumb-item"><Link to="/eshop" >E-shop </Link></li><span>&nbsp;/&nbsp;</span>
                             <li className="breadcremb-item">
-                                <Link to="/eshop/order" >Panier</Link>
+                                <Link to="/eshop/cart" >Panier</Link>
                             </li><span>&nbsp;/&nbsp;</span>
                             <li className="breadcremb-item active"><span className='orderInactiveLabel'>
                                 Récapitulatif de la commande

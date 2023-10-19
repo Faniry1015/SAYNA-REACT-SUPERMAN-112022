@@ -31,7 +31,7 @@ function CartItem({ cartProductItem, deleteItem, qttChange }) {
     const { nom, imgUrl, id, prixTotalArticles, quantité } = itemsState
     return (
         <>
-            <div className="d-flex justify-content-between align-items-center border-product" ref={deletedItem}>
+            <div className="d-flex justify-content-between align-items-center border-product w-100" ref={deletedItem}>
                 <div className="product d-flex align-items-center">
                     <img className='cartitemImg' src={imgUrl} alt={nom} />
                     <div className="m-4">

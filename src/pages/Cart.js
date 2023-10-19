@@ -34,7 +34,6 @@ function Cart() {
   }, [user])
 
   //Gestion des produits dans le panier
-  //ENCORE DES BUGS DANS DELETE
   const deleteItem = async function (product) {
     const product_cart = product
     product.quantité = 0

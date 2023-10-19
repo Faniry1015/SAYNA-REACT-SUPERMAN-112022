@@ -9,6 +9,7 @@ import '../styles/Eshop.css'
 import PriceFilter from "../components/PriceFilter";
 import Checkboxfilter from "../components/Checkboxfilter";
 import toBottomArrow from '../assets/icones/flèche_down_header.png'
+import FadeIn from "../components/FadeIn";
 
 function Eshop() {
    const categorieArray = [
@@ -161,49 +162,62 @@ function Eshop() {
 
    return (
       <>
-         <HeroShop />
-         <div className="toBottomArrow">
-            <img src={toBottomArrow} alt="Bottom Arrow" />
-         </div>
-         <section className="container pt-5">
-            <div className="float-end mb-5">
-               <Link to='/eshop/cart'>
-                  <i className="fa-solid fa-4x fa-fade fa-cart-shopping"></i>
-               </Link>
+         <FadeIn>
+            <HeroShop />
+         </FadeIn>
+         <FadeIn>
+            <div className="toBottomArrow">
+               <img src={toBottomArrow} alt="Bottom Arrow" />
             </div>
-         </section>
-         <section className="productsMainContainer mt-5">
-            <div className="row">
-               <div className="col-md-3 filtersContainer">
-                  <div className="mb-5">
-                     <h3>Rechercher</h3>
-                     <input type="text" className="form-control" placeholder="Rechercher..." id="search" name="search" value={search} onChange={handleSearch} />
+         </FadeIn>
+
+         <FadeIn>
+            <section className="container pt-5">
+               <div className="float-end mb-5">
+                  <Link to='/eshop/cart'>
+                     <i className="fa-solid fa-4x fa-fade fa-cart-shopping"></i>
+                  </Link>
+               </div>
+            </section>
+         </FadeIn>
+
+         <FadeIn>
+            <section className="productsMainContainer mt-5">
+               <div className="row">
+                  <div className="col-md-3 filtersContainer">
+                     <div className="mb-5">
+                        <h3>Rechercher</h3>
+                        <input type="text" className="form-control" placeholder="Rechercher..." id="search" name="search" value={search} onChange={handleSearch} />
+                     </div>
+                     <h3>Filtres</h3>
+                     <PriceFilter onMaxPriceChange={handlefilterChange} />
+                     <Checkboxfilter dataFilterArray={categorieArray} onCheckChange={handlefilterChange}>Catégorie</Checkboxfilter>
+                     <Checkboxfilter id='univers' dataFilterArray={universArray} onCheckChange={handlefilterChange}>Univers</Checkboxfilter>
                   </div>
-                  <h3>Filtres</h3>
-                  <PriceFilter onMaxPriceChange={handlefilterChange} />
-                  <Checkboxfilter dataFilterArray={categorieArray} onCheckChange={handlefilterChange}>Catégorie</Checkboxfilter>
-                  <Checkboxfilter id='univers' dataFilterArray={universArray} onCheckChange={handlefilterChange}>Univers</Checkboxfilter>
+                  <div className="col-md-9">
+                     <section id="products">
+                        {
+                           products.length >= 1 && (
+                              <div className="product-box">
+                                 <Products products={visibleProducts} category={''} addToCart={addToCart} />
+                              </div>
+                           )
+                        }
+                        {
+                           products.length < 1 && (
+                              <div className="productLoader">
+                                 <h6><i className="fa-solid fa-spinner fa-spin-pulse fa-10x" style={{ color: "#B11313cc", }}></i></h6>
+                              </div>
+                           )
+                        }
+                     </section>
+                  </div>
                </div>
-               <div className="col-md-9">
-                  <section id="products">
-                     {
-                        products.length >= 1 && (
-                           <div className="product-box">
-                              <Products products={visibleProducts} category={''} addToCart={addToCart} />
-                           </div>
-                        )
-                     }
-                     {
-                        products.length < 1 && (
-                           <div className="productLoader">
-                              <h6><i className="fa-solid fa-spinner fa-spin-pulse fa-10x" style={{ color: "#B11313cc", }}></i></h6>
-                           </div>
-                        )
-                     }
-                  </section>
-               </div>
-            </div>
-         </section>
+            </section>
+         </FadeIn>
+
+
+
       </>
    );
 }

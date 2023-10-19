@@ -41,7 +41,12 @@ color: #B11313;
 .add-to-cart {
     background: #07338Caa;
 }
+
 .add-to-cart:hover {
     background: #07338C;
+}
+
+.cartitemImg {
+    min-width: 100px;
 }
 

@@ -16,11 +16,13 @@ import rightBtn from '../assets/icones/Polygon.png'
 import posterSuperman from '../assets/images/img12.png'
 import boManOfSteel from '../assets/videos/bo-man-of-steel.mp4'
 import boManOfSteelPoster from '../assets/images/img15.png'
+import FadeIn from '../components/FadeIn';
 
 function Home() {
     return (
         <main>
             {/* Section 1 Il est Batman */}
+            <FadeIn>
             <section className="reveal">
                 <div className="sect1">
                     <div className="sect1__logoDc">
@@ -32,8 +34,10 @@ function Home() {
                     </div>
                 </div>
             </section>
+            </FadeIn>
 
             {/* Section 2: Batman au cinéma */}
+            <FadeIn>
             <section id="sec2" className="hero">
                 <div className="sec2">
                     <h2 className="reveal">Superman au cinéma</h2>
@@ -69,8 +73,10 @@ function Home() {
                     </div>
                 </div>
             </section>
+            </FadeIn>
 
             {/* Section 3: Ennemies */}
+            <FadeIn>
             <section className="reveal ennemies" id="sec3">
                 <div className="sec3">
                     <h2 id="sec3Title">Némésis</h2>
@@ -101,8 +107,9 @@ function Home() {
                     </div>
                 </div>
             </section>
+            </FadeIn>
 
-            {/* Section 4: Alliés */}
+            <FadeIn>
             <section>
                 <div className="sec4">
                     <h2 className="reveal">ALLIÉS</h2>
@@ -134,8 +141,12 @@ function Home() {
                     </div>
                 </div>
             </section>
+            </FadeIn>
+            {/* Section 4: Alliés */}
+
 
             {/* Section 5: Multimédia */}
+            <FadeIn>
             <section className="reveal">
                 <div className="sec5">
                     <h2>Batman vs Superman</h2>
@@ -167,11 +178,15 @@ function Home() {
                     </div>
                 </div>
             </section>
+            </FadeIn>
 
             {/* Section 7: Formulaire */}
+            <FadeIn>
             <ContactForm />
+            </FadeIn>
 
             {/* Section 8: Citations */}
+            <FadeIn>
             <section className="reveal">
                 <div className="sec8">
                     <figure className="sec8__figure">
@@ -185,6 +200,7 @@ function Home() {
                     </figure>
                 </div>
             </section>
+            </FadeIn>
         </main>
     );
 }

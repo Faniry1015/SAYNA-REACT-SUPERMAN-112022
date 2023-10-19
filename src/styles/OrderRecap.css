@@ -1,3 +1,7 @@
+.orderInactiveLabel {
+    text-decoration: underline;
+}
+
 .codePromoInput {
     height: 40px;
 }
