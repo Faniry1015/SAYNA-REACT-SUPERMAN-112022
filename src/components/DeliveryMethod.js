@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { db } from '../firebase-config';
 import { UserAuth } from '../context/AuthContext'
-import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
 import '../styles/DeliveryPayment.css'
 
 function DeliveryMethod() {
@@ -44,7 +44,7 @@ function DeliveryMethod() {
     return (
         <div className='monCompte__Container'>
             <section className='monCompte__infoPersContainer deliveryContainer'>
-                <h3>Livrason</h3>
+                <h3>Livraison</h3>
                 <hr />
                 <div>
                     <ul>

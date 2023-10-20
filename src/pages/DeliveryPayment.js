@@ -46,6 +46,9 @@ function DeliveryPayment() {
                     <OrderRecapMain />
                 </div>
             </div>
+            <div className="submitBtnContainer w-100 d-flex justify-content-center">
+                <button className="submitOrder">Valider et payer</button>
+            </div>
         </section>
 
     </>
