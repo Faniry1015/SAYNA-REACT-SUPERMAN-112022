@@ -4,7 +4,7 @@ import { UserAuth } from '../context/AuthContext'
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import '../styles/MonCompteInfoPers.css'
 
-function MonCompteInfoPers({ title, selected }) {
+function MonCompteInfoPers({ selected }) {
 
     const { user } = UserAuth()
 

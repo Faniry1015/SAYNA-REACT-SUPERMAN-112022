@@ -2,6 +2,9 @@ import React from 'react'
 import OrderRecapMain from '../components/OrderRecapMain'
 import { Link } from 'react-router-dom'
 import '../styles/DeliveryPayment.css'
+import MonCompteInfoPers from '../components/MonCompteInfoPers'
+import DeliveryMethod from '../components/DeliveryMethod'
+import PaymentMethod from '../components/PayMentMethod'
 
 function DeliveryPayment() {
     return (<>
@@ -28,7 +31,17 @@ function DeliveryPayment() {
                 </div>
             </div>
             <div className="row">
-                <div className="col-md-6">Adresses</div>
+                <div className="col-md-6">
+                    <div className='deliveryLeftComponent'>
+                        <MonCompteInfoPers selected={true} />
+                    </div>
+                    <div className='deliveryLeftComponent'>
+                        <DeliveryMethod />
+                    </div>
+                    <div className='deliveryLeftComponent'>
+                        <PaymentMethod />
+                    </div>
+                </div>
                 <div className="col-md-6">
                     <OrderRecapMain />
                 </div>

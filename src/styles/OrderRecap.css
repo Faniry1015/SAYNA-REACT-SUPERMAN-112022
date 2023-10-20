@@ -8,6 +8,7 @@
 
 .addCodePromoBtn {
     height: 40px;
+    max-width: 100%;
     background: none;
     border: solid 2px;
     border-image: linear-gradient(to right, #19587D, #B11313);

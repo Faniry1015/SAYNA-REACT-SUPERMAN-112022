@@ -29,7 +29,6 @@ function ForgotPassword() {
             <section id='hero'>
                 <div className="hero-signup-image">
                     <div className="container">
-                        <h1 className="herotitle text-uppercase text-white"></h1>
                         <section className="inscription">
                             <div className="container formulaire">
                                 <div className="head text-center">

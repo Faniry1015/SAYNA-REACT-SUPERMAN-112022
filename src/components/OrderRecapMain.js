@@ -40,7 +40,7 @@ function OrderRecapMain() {
         const querySnapshot = await getDocs(collection(db, "codePromo"));
         const allCodePromoArray = []
         querySnapshot.forEach((doc) => {
-            allCodePromoArray.push({code: doc.id, value: doc.data().value})
+            allCodePromoArray.push({ code: doc.id, value: doc.data().value })
             setAllCodePromo(allCodePromoArray)
         });
         console.log('Les codes promos sont :', allCodePromoArray)
@@ -67,17 +67,18 @@ function OrderRecapMain() {
             } else {
                 return 0
             }
-            
-        } 
+
+        }
         const totalPayement = (sumSubTotal - reductionAmount()) + (sumSubTotal - reductionAmount()) / state.taxe
 
 
-        setState((state, props) => ({taxe : 20, subTotalState: sumSubTotal,
+        setState((state, props) => ({
+            taxe: 20, subTotalState: sumSubTotal,
             reduction: reductionAmount(),
             totalPayement: totalPayement,
         }))
 
-    }, [orderProducts, codePromoValue,state.reduction])
+    }, [orderProducts, codePromoValue, state.reduction])
 
     function padSingleDigit(number) {
         const numberString = number.toString();
@@ -95,7 +96,7 @@ function OrderRecapMain() {
         setCodePromo(codePromoRef.current.value)
     }
 
-    useEffect(()=> {
+    useEffect(() => {
         allCodePromo.find((element) => {
             if (element.code === codePromo) {
                 setCodePromoValue(element.value)
@@ -114,19 +115,19 @@ function OrderRecapMain() {
                     <OrderProducts orderProducts={orderProducts} />
                 </div>
                 <div className="codePromoContainer my-4">
-                    <form className='d-flex align-items-center' id='codePromoForm' onSubmit={handleCodePromoSubmit}>
-                        <input type="text" name="codePromo" id="codePromo" className='codePromoInput px-1' placeholder='Code promo' ref={codePromoRef} />
-                        <button type='submit' className='addCodePromoBtn' placeholder='Code Promo'>Ajouter</button>
+                    <form className='d-flex align-items-center flex-wrap' id='codePromoForm' onSubmit={handleCodePromoSubmit}>
+                        <input type="text" name="codePromo" id="codePromo" className='codePromoInput px-1 mb-3' placeholder='Code promo' ref={codePromoRef} />
+                        <button type='submit' className='addCodePromoBtn mb-3' placeholder='Code Promo'>Ajouter</button>
                     </form>
 
                 </div>
                 <hr />
                 {/* {JSON.stringify(state)} */}
-                <div className="sous-total container-largeur">
-                    <div className="d-flex justify-content-between">
+                <div className="sous-total">
+                    <div className="d-flex justify-content-between w-100">
                         <div>
                             <h4>
-                                Total
+                                Sous-total
                             </h4>
                         </div>
                         <div>
@@ -135,10 +136,10 @@ function OrderRecapMain() {
                             </h3>
                         </div>
                     </div>
-                    <div className="d-flex justify-content-between">
+                    <div className="d-flex justify-content-between w-100">
                         <div>
                             <h4>
-                                Réduction ({codePromoValue}%)
+                                Réduction {codePromoValue > 0 && <>({codePromoValue}%)</>}
                             </h4>
                         </div>
                         <div>
@@ -147,7 +148,7 @@ function OrderRecapMain() {
                             </h3>
                         </div>
                     </div>
-                    <div className="d-flex justify-content-between">
+                    <div className="d-flex justify-content-between w-100">
                         <div>
                             <h4>
                                 Taxe
@@ -160,10 +161,10 @@ function OrderRecapMain() {
                         </div>
                     </div>
                     <hr />
-                    <div className="d-flex justify-content-between">
+                    <div className="d-flex justify-content-between w-100">
                         <div>
                             <h4>
-                                Total
+                                TOTAL
                             </h4>
                         </div>
                         <div>

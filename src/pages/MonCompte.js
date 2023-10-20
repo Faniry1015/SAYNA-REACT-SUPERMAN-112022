@@ -1,11 +1,9 @@
 import React from 'react'
-import { UserAuth } from '../context/AuthContext'
 import "../styles/MonCompte.css"
 import MonCompteApp from '../components/MonCompteApp'
 import FadeIn from '../components/FadeIn'
 
 function MonCompte() {
-  const { logout } = UserAuth()
 
 
   return (
