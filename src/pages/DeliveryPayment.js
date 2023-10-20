@@ -2,7 +2,7 @@ import React from 'react'
 import OrderRecapMain from '../components/OrderRecapMain'
 import { Link } from 'react-router-dom'
 import '../styles/DeliveryPayment.css'
-import MonCompteInfoPers from '../components/MonCompteInfoPers'
+import MonCompteInfoPersMain from '../components/MonCompteInfoPersMain'
 import DeliveryMethod from '../components/DeliveryMethod'
 import PaymentMethod from '../components/PayMentMethod'
 
@@ -32,8 +32,8 @@ function DeliveryPayment() {
             </div>
             <div className="row">
                 <div className="col-md-6">
-                    <div className='deliveryLeftComponent'>
-                        <MonCompteInfoPers selected={true} />
+                    <div className='deliveryLeftComponent pb-4'>
+                        <MonCompteInfoPersMain selected={true} />
                     </div>
                     <div className='deliveryLeftComponent'>
                         <DeliveryMethod />
