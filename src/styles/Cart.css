@@ -35,10 +35,13 @@
 }
 
 .sous-total {
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
 
 .sous-total h3 {
     font-family: Cantarell;
     color: #bebebe;
+    margin-bottom: 20px;
 }

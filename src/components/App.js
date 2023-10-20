@@ -14,6 +14,7 @@ import { AuthContextProvider } from "../context/AuthContext";
 import ProtectedRoutes from "./ProtectedRoutes";
 import { ForgotPassword } from "../pages/ForgotPassword";
 import OrderRecap from "../pages/OrderRecap";
+import DeliveryPayment from "../pages/DeliveryPayment";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
                 <Route path="eshop" element={<Eshop />} />
                 <Route path="eshop/cart" element={<Cart />} />
                 <Route path="eshop/cart/orderRecap" element={<OrderRecap />} />
+                <Route path="eshop/cart/orderRecap/deliveryPayment" element={<DeliveryPayment />} />
                 <Route path="eshop/productDetail" element={<ProductDetail />} />
                 <Route path="compte" element={
                    <ProtectedRoutes route="login">

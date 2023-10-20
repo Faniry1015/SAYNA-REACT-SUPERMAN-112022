@@ -24,4 +24,9 @@
 
 #codePromoForm {
 background: none;
+padding-left: 0px;
+}
+
+.orderMainPart {
+    min-width: fit-content;
 }

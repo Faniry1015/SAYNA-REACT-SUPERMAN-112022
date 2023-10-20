@@ -111,15 +111,12 @@ function Cart() {
 
   function padSingleDigit(number) {
     const numberString = number.toString();
-  
+
     if (numberString.length === 1) {
       return '0' + numberString;
     }
-  
     return numberString;
   }
-
-
 
   return (<>
     <div className="container container-largeur mb-5">
@@ -139,35 +136,44 @@ function Cart() {
       <div className="recap">
         <h3>Récapitulatif du panier</h3>
       </div>
-      <div className="product-box">
+    </div>
+    {cartProducts.length > 0 && <>
+      <div className="product-box container-largeur mb-5">
         <CartProducts cartProducts={cartProducts} deleteItem={deleteItem} qttChange={qttChange} />
       </div>
 
       <div className="sous-total container-largeur">
-        <h3 className="float-end">
-          <span>Nombre total d'Articles : </span><strong> {padSingleDigit(state.totalArticles)}</strong> <br />
+        <h3 className="">
+          <span>Nombre total d'Articles : </span><strong> {padSingleDigit(state.totalArticles)}</strong>
+        </h3>
+        <h3>
           <span>Total à payer :</span><strong> {padSingleDigit(state.totalPayment)}€</strong>
         </h3>
+        <hr />
       </div>
-    </div>
-    <section className="container container-largeur d-flex justify-content-center align-items-center">
-      <Link to='/eshop'>
-        <button className="mx-2">Continuer mes achats</button>
-      </Link>
-      <Link to='/eshop/cart/orderRecap'>
-        <button className="mx-2">
-          Passer commande
-        </button>
-      </Link>
-    </section>
-    {cartProducts.length <= 0 && <>
-      <h1 className="text-center">Ton panier est vide</h1>
-      <div className="container-largeur">
+      <section className="container container-largeur d-flex justify-content-center align-items-center">
         <Link to='/eshop'>
-          <button>Faire des Achats</button>
+          <button className="mx-2">Continuer mes achats</button>
         </Link>
-      </div>
+        <Link to='/eshop/cart/orderRecap'>
+          <button className="mx-2">
+            Passer commande
+          </button>
+        </Link>
+      </section>
+      {/* {cartProducts.length}
+      {JSON.stringify(cartProducts)} */}
     </>}
+    {
+      cartProducts.length <= 0 && <>
+        <h2 className="text-center mb-5">Ton panier est vide</h2>
+        <div className="container-largeur d-flex justify-content-center">
+          <Link to='/eshop'>
+            <button>Faire des Achats</button>
+          </Link>
+        </div>
+      </>
+    }
   </>
   )
 }
