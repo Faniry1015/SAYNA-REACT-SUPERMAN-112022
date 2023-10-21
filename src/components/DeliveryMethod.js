@@ -4,10 +4,10 @@ import { UserAuth } from '../context/AuthContext'
 import { doc, getDoc } from "firebase/firestore";
 import '../styles/DeliveryPayment.css'
 
-function DeliveryMethod() {
+function DeliveryMethod({onDeliveryChange}) {
     const { user } = UserAuth()
     const [userData, setUserData] = useState({})
-    const [state, setState] = useState({ deliveryMethod: 'chronoPost', deliveryAdress: '' })
+    const [delivery, setDelivery] = useState({ deliveryMethod: 'chronoPost', deliveryAdress: 'my current adress' })
 
     const getUserInfo = async () => {
         if (user.email) {
@@ -27,15 +27,18 @@ function DeliveryMethod() {
     }
 
     useEffect(() => {
+        onDeliveryChange(delivery)
         getUserInfo()
         // eslint-disable-next-line
     }, [user])
 
     const handleStateChange = (e) => {
         if (e.target.id === 'deliveryMethod') {
-            setState((state) => ({ ...state, deliveryMethod: e.target.value }))
+            setDelivery((state) => ({ ...delivery, deliveryMethod: e.target.value }))
+            onDeliveryChange({ ...delivery, deliveryMethod: e.target.value })
         } else {
-            setState((state) => ({ ...state, deliveryAdress: e.target.value }))
+            setDelivery((state) => ({ ...delivery, deliveryAdress: e.target.value }))
+            onDeliveryChange({ ...delivery, deliveryAdress: e.target.value })
         }
 
     }
@@ -48,7 +51,7 @@ function DeliveryMethod() {
                 <hr />
                 <div>
                     <ul>
-                        <li><label htmlFor="deliveryMethod">Méthode de livraison :</label>  <select className="custom-select w-100" id="deliveryMethod" value={state.deliveryMethod} onChange={handleStateChange}>
+                        <li><label htmlFor="deliveryMethod">Méthode de livraison :</label>  <select className="custom-select w-100" id="deliveryMethod" value={delivery.deliveryMethod} onChange={handleStateChange}>
                             <option value="chronopost">ChronoPost - Livraison à domicile</option>
                             <option value="dhl">DHL</option>
                             <option value="magasin">Récupération en magasin</option>

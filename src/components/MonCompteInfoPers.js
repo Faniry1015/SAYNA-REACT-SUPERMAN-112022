@@ -1,4 +1,4 @@
-import React, { createRef, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { db } from '../firebase-config';
 import { UserAuth } from '../context/AuthContext'
 import { doc, getDoc, updateDoc } from "firebase/firestore";
@@ -11,9 +11,7 @@ function MonCompteInfoPers({ selected }) {
     const { user } = UserAuth()
 
     const [userData, setUserData] = useState({ newsletter: false })
-    const [changeFormStatus, setChangeFormStatus] = useState(false)
-    const infoPersRef = createRef()
-
+    //handle newsletter change from here (NOT INFO PERS which is also used in payment and delivery page)
     const getUserInfo = async () => {
         if (user.email) {
             try {
@@ -26,7 +24,8 @@ function MonCompteInfoPers({ selected }) {
                     console.log("No such document!");
                 }
             } catch (e) {
-                alert('Erreur de chargement des informations utilisateurs', e.message)
+                console.log(e)
+                alert('Erreur de chargement des informations utilisateurs')
             }
         }
     }
@@ -35,8 +34,6 @@ function MonCompteInfoPers({ selected }) {
         getUserInfo()
         // eslint-disable-next-line
     }, [user])
-
-    //Handle Newsletter
 
     const handleNewsletterChange = async (newsletterData) => {
         setUserData({ ...userData, newsletter: JSON.parse(newsletterData) })
@@ -50,34 +47,9 @@ function MonCompteInfoPers({ selected }) {
                 console.error('Erreur lors de la mise à jour de la newsletter', error);
             }
         }
-
     };
 
-    const toggleChangeForm = () => {
-        setChangeFormStatus(!changeFormStatus)
-    }
-
-    const handleSubmitChange = async (e) => {
-        e.preventDefault()
-        const formData = new FormData(infoPersRef.current);
-        const formDataObject = {};
-        for (const [name, value] of formData.entries()) {
-            formDataObject[name] = value;
-        }
-        setUserData({ ...userData, ...formDataObject })
-        toggleChangeForm()
-        // Mise à jour de la bdd firebase
-        try {
-            const userRef = doc(db, "usersDetails", user.email);
-            await updateDoc(userRef, {
-                ...formDataObject
-            });
-        } catch (error) {
-            console.error("Error updating userInfo: ", error)
-        }
-    }
-
-    const { nom, prenom, email, adress, phone, password, newsletter } = userData
+    const { newsletter } = userData
     return (
         <div hidden={!selected} className='monCompte__Container'>
             <MonCompteInfoPersMain />

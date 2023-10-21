@@ -77,6 +77,7 @@ function Eshop() {
          setVisibleProducts(productsArray)
       } catch (e) {
          console.log(e)
+         alert('Erreur de chargement des articles, vérifiez votre connexion internet et actualisez la page')
       }
    }
 

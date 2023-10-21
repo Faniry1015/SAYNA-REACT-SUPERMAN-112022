@@ -3,9 +3,6 @@ import '../styles/MonCompteInfoPers.css'
 
 function MonCompteInfoNewsletter({ newsletterStatus, onNewsletterChange }) {
 
-
-
-    //Handle Newsletter
     const handleNewsletterChange = (e) => {
         onNewsletterChange(e.target.value)
     };

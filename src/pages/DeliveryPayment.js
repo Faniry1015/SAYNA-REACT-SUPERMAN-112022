@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import OrderRecapMain from '../components/OrderRecapMain'
 import { Link } from 'react-router-dom'
 import '../styles/DeliveryPayment.css'
@@ -7,8 +7,20 @@ import DeliveryMethod from '../components/DeliveryMethod'
 import PaymentMethod from '../components/PayMentMethod'
 
 function DeliveryPayment() {
+
+    const [orderData, setOrderData] = useState({})
+
+    const handleInfoPersChange = (infoPersData) => {
+        setOrderData({...orderData, ...infoPersData, password: 'hide'})
+    }
+
+    const handleDeliveryChange = (deliveryData) => {
+        setOrderData({...orderData, ...deliveryData})
+    }
+
     return (<>
         <section>
+        {JSON.stringify(orderData)}
             <div className="container container-largeur mb-5">
                 <div className="row mb-5 mt-5">
                     <div className="d-flex justify-content-between">
@@ -33,10 +45,10 @@ function DeliveryPayment() {
             <div className="row">
                 <div className="col-md-6">
                     <div className='deliveryLeftComponent pb-4'>
-                        <MonCompteInfoPersMain selected={true} />
+                        <MonCompteInfoPersMain selected={true} onInfoPersChange={handleInfoPersChange}/>
                     </div>
                     <div className='deliveryLeftComponent'>
-                        <DeliveryMethod />
+                        <DeliveryMethod onDeliveryChange={handleDeliveryChange}/>
                     </div>
                     <div className='deliveryLeftComponent'>
                         <PaymentMethod />

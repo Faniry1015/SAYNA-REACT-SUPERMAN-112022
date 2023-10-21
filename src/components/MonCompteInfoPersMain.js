@@ -4,7 +4,7 @@ import { UserAuth } from '../context/AuthContext'
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import '../styles/MonCompteInfoPers.css'
 
-function MonCompteInfoPersMain({ selected }) {
+function MonCompteInfoPersMain({ selected, onInfoPersChange }) {
 
     const { user } = UserAuth()
 
@@ -20,6 +20,7 @@ function MonCompteInfoPersMain({ selected }) {
 
                 if (userSnap.exists()) {
                     setUserData(userSnap.data())
+                    onInfoPersChange(userSnap.data())
                 } else {
                     console.log("No such document!");
                 }
@@ -46,6 +47,7 @@ function MonCompteInfoPersMain({ selected }) {
             formDataObject[name] = value;
         }
         setUserData({ ...userData, ...formDataObject })
+        onInfoPersChange({ ...userData, ...formDataObject })
         toggleChangeForm()
         // Mise à jour de la bdd firebase
         try {
