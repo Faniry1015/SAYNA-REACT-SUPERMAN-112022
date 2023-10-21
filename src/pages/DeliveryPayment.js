@@ -18,6 +18,12 @@ function DeliveryPayment() {
         setOrderData({...orderData, ...deliveryData})
     }
 
+    const handlePaymentChange = (paymentData) => {
+        setOrderData({...orderData, ...paymentData})
+    }
+
+
+
     return (<>
         <section>
         {JSON.stringify(orderData)}
@@ -51,7 +57,7 @@ function DeliveryPayment() {
                         <DeliveryMethod onDeliveryChange={handleDeliveryChange}/>
                     </div>
                     <div className='deliveryLeftComponent'>
-                        <PaymentMethod />
+                        <PaymentMethod onPaymentChange={handlePaymentChange}/>
                     </div>
                 </div>
                 <div className="col-md-6">
