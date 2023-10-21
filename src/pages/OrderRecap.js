@@ -4,6 +4,10 @@ import '../styles/OrderRecap.css'
 import OrderRecapMain from '../components/OrderRecapMain';
 
 function OrderRecap() {
+    const handleOrderRecapChange = () => {
+        //Not used here but in DeliveryPayment.js
+        return
+    }
 
     return (<>
         <div className="row mb-5 mt-5">
@@ -22,7 +26,7 @@ function OrderRecap() {
                 </nav>
             </div>
         </div>
-        <OrderRecapMain />
+        <OrderRecapMain onOrderRecapChange={handleOrderRecapChange}/>
         <section id='orderRecapBtn' className="container container-largeur d-flex justify-content-center align-items-center">
             <Link to='/eshop'>
                 <button className="mx-2">Retourner au catalogue</button>

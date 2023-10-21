@@ -25,7 +25,7 @@ function MonCompteInfoPersMain({ selected, onInfoPersChange }) {
                     console.log("No such document!");
                 }
             } catch (e) {
-                alert('Erreur de chargement des informations utilisateurs, vérifiez votre connexion internet et actualisez la page', e.message)
+                console.error('Erreur de chargement des informations utilisateurs, vérifiez votre connexion internet et actualisez la page', e.message)
             }
         }
     }

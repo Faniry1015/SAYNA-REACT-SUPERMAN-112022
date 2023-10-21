@@ -6,10 +6,12 @@ import MonCompteInfoPersMain from '../components/MonCompteInfoPersMain'
 import DeliveryMethod from '../components/DeliveryMethod'
 import PaymentMethod from '../components/PayMentMethod'
 import { db } from '../firebase-config'
-import { setDoc, doc, Timestamp } from 'firebase/firestore'
+import { setDoc, doc, Timestamp, deleteDoc } from 'firebase/firestore'
+import { UserAuth } from '../context/AuthContext'
 
 
 function DeliveryPayment() {
+    const { user } = UserAuth()
 
     const [orderData, setOrderData] = useState({})
     const navigate = useNavigate()
@@ -55,18 +57,23 @@ function DeliveryPayment() {
             ...orderData, date: Timestamp.fromDate(new Date())
         }
         try {
-            await setDoc(doc(db, "commandes", `order-${orderSubmitedData.date}` ), orderSubmitedData);
+            await setDoc(doc(db, "commandes", `order-${orderSubmitedData.date}`), orderSubmitedData);
+            //Supprimer les articles du panier     
+            orderSubmitedData.articlesAndAmountToPay.articlesInfo.forEach(async(article) => {
+                console.log(article.id)
+                await deleteDoc(doc(db, `Cart-${user.uid}`, article.nom ))
+            })
             console.log('DETAILS SUR LA COMMANDE ENVOYE: ', orderData);
             navigate('/eshop/cart/orderRecap/deliveryPayment/orderConfirmed')
-        } catch(error) {
+        } catch (error) {
             console.log(error)
             alert("Erreur lors de l'envoie de la commande, vérifiez votre connexion internet et actualisez la page: ");
-        };     
+        };
     }
 
     return (<>
         <section>
-            {JSON.stringify(orderData)}
+            {/* {JSON.stringify(orderData)} */}
             <div className="container container-largeur mb-5">
                 <div className="row mb-5 mt-5">
                     <div className="d-flex justify-content-between">

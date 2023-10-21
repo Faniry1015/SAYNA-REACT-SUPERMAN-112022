@@ -4,7 +4,6 @@ import { collection, getDocs } from "firebase/firestore";
 import { UserAuth } from '../context/AuthContext';
 import { db } from '../firebase-config';
 import OrderProducts from '../components/OrderProducts.js';
-import OrderRecap from '../pages/OrderRecap';
 
 function OrderRecapMain({ onOrderRecapChange }) {
 

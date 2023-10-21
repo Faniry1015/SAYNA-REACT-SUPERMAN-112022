@@ -24,8 +24,7 @@ function MonCompteInfoPers({ selected }) {
                     console.log("No such document!");
                 }
             } catch (e) {
-                console.log(e)
-                alert('Erreur de chargement des informations utilisateurs')
+                console.error('Erreur de chargement des informations utilisateurs', e)
             }
         }
     }
