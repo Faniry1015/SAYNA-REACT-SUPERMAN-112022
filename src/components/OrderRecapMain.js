@@ -1,12 +1,12 @@
 import React, { useEffect, useState, createRef } from 'react'
-import { Link } from 'react-router-dom'
 import '../styles/OrderRecap.css'
 import { collection, getDocs } from "firebase/firestore";
 import { UserAuth } from '../context/AuthContext';
 import { db } from '../firebase-config';
 import OrderProducts from '../components/OrderProducts.js';
+import OrderRecap from '../pages/OrderRecap';
 
-function OrderRecapMain() {
+function OrderRecapMain({ onOrderRecapChange }) {
 
     const [orderProducts, setOrderProducts] = useState([])
     const [state, setState] = useState({
@@ -21,6 +21,8 @@ function OrderRecapMain() {
     const [codePromo, setCodePromo] = useState('')
     const [codePromoValue, setCodePromoValue] = useState(0)
 
+    const [orderRecapData, setOrderRecapData] = useState({})
+
     const { user } = UserAuth()
 
     //Récupérer tous le panier depuis firebase
@@ -32,6 +34,19 @@ function OrderRecapMain() {
                 productsOrderArray.push({ id: doc.id, ...doc.data() })
             })
             setOrderProducts([...productsOrderArray])
+            //Order Info for payment and delivery component
+            const infoTokeepForOrder = ['id', 'nom', 'prix', 'categorie', 'quantité', 'prixTotalArticles']
+            const filteredProductData = []
+            productsOrderArray.forEach((product) => {
+                const orderProductInfo = Object.fromEntries(
+                    Object.entries(product).filter(([key]) => infoTokeepForOrder.includes(key))
+                )
+                filteredProductData.push(orderProductInfo)
+            })
+            setOrderRecapData({
+                ...orderRecapData,
+                articlesInfo: filteredProductData
+            })
         } else {
             alert('Connectez vous à un compte pour pouvoir faire des achats')
         }
@@ -71,12 +86,19 @@ function OrderRecapMain() {
         }
         const totalPayement = (sumSubTotal - reductionAmount()) + (sumSubTotal - reductionAmount()) / state.taxe
 
-
         setState((state, props) => ({
             taxe: 20, subTotalState: sumSubTotal,
             reduction: reductionAmount(),
             totalPayement: totalPayement,
         }))
+        setOrderRecapData({
+            ...orderRecapData,
+            allAmountDetails: {
+                taxe: 20, subTotalState: sumSubTotal,
+                reduction: reductionAmount(),
+                totalPayement: totalPayement,
+            }
+        })
 
     }, [orderProducts, codePromoValue, state.reduction])
 
@@ -104,8 +126,13 @@ function OrderRecapMain() {
         })
     }, [codePromo])
 
+    useEffect(() => {
+        onOrderRecapChange(orderRecapData)
+    }, [orderRecapData])
 
-    return (<>
+
+    return <>
+        {/* {JSON.stringify(orderRecapData)} */}
         <div className="container container-largeur mb-5">
             <div className="orderMainPart">
                 <div className="recap">
@@ -177,7 +204,6 @@ function OrderRecapMain() {
             </div>
         </div>
     </>
-    )
 }
 
 export default OrderRecapMain

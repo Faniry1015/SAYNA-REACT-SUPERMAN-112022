@@ -1,43 +1,72 @@
-import React, {useEffect, useState} from 'react'
+import React, { useState } from 'react'
 import OrderRecapMain from '../components/OrderRecapMain'
-import { Link } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import '../styles/DeliveryPayment.css'
 import MonCompteInfoPersMain from '../components/MonCompteInfoPersMain'
 import DeliveryMethod from '../components/DeliveryMethod'
 import PaymentMethod from '../components/PayMentMethod'
+import { db } from '../firebase-config'
+import { setDoc, doc, Timestamp } from 'firebase/firestore'
+
 
 function DeliveryPayment() {
 
     const [orderData, setOrderData] = useState({})
+    const navigate = useNavigate()
 
     const handleInfoPersChange = (infoPersData) => {
-        // Mettre à jour uniquement les clés liées aux informations personnelles
+        const filteredInfo = { ...infoPersData }
+        const infoPersToDelete = ['password', 'newsletter']
+        infoPersToDelete.forEach(key => {
+            delete filteredInfo[key]
+        });
         setOrderData((prevData) => ({
-          ...prevData,
-          ...infoPersData,
-          password: 'hide',
-        }));
-      };
-    
-      const handleDeliveryChange = (deliveryData) => {
-        // Mettre à jour uniquement les clés liées à la livraison
+            ...prevData,
+            clientInfo: filteredInfo
+        }
+
+        ));
+    };
+
+    const handleDeliveryChange = (deliveryData) => {
         setOrderData((prevData) => ({
-          ...prevData,
-          ...deliveryData,
-        }));
-      };
-    
-      const handlePaymentChange = (paymentData) => {
-        // Mettre à jour uniquement les clés liées au paiement
+            ...prevData,
+            deliveryInfo: deliveryData
+        }
+        ));
+    };
+
+    const handlePaymentChange = (paymentData) => {
         setOrderData((prevData) => ({
-          ...prevData,
-          ...paymentData,
-        }));
-      };
+            ...prevData, paymentInfo: paymentData
+        }
+        ));
+    };
+
+    const handleOrderRecapChange = (orderDetailMainInfo) => {
+        setOrderData((prevData) => ({
+            ...prevData, articlesAndAmountToPay: orderDetailMainInfo
+        }
+        ));
+    };
+
+    const handleSubmitOrder = async () => {
+        const orderSubmitedData = {
+            ...orderData, date: Timestamp.fromDate(new Date())
+        }
+        try {
+            await setDoc(doc(db, "commandes", `order-${orderSubmitedData.date}` ), orderSubmitedData);
+            console.log('DETAILS SUR LA COMMANDE ENVOYE: ', orderData);
+            navigate('/eshop/cart/orderRecap/deliveryPayment/orderConfirmed')
+        } catch(error) {
+            console.log(error)
+            alert("Erreur lors de l'envoie de la commande, vérifiez votre connexion internet et actualisez la page: ");
+        };     
+    }
 
     return (<>
         <section>
-        {JSON.stringify(orderData)}
+            {JSON.stringify(orderData)}
             <div className="container container-largeur mb-5">
                 <div className="row mb-5 mt-5">
                     <div className="d-flex justify-content-between">
@@ -62,21 +91,21 @@ function DeliveryPayment() {
             <div className="row">
                 <div className="col-md-6">
                     <div className='deliveryLeftComponent pb-4'>
-                        <MonCompteInfoPersMain selected={true} onInfoPersChange={handleInfoPersChange}/>
+                        <MonCompteInfoPersMain selected={true} onInfoPersChange={handleInfoPersChange} />
                     </div>
                     <div className='deliveryLeftComponent'>
-                        <DeliveryMethod onDeliveryChange={handleDeliveryChange}/>
+                        <DeliveryMethod onDeliveryChange={handleDeliveryChange} />
                     </div>
                     <div className='deliveryLeftComponent'>
-                        <PaymentMethod onPaymentChange={handlePaymentChange}/>
+                        <PaymentMethod onPaymentChange={handlePaymentChange} />
                     </div>
                 </div>
                 <div className="col-md-6">
-                    <OrderRecapMain />
+                    <OrderRecapMain onOrderRecapChange={handleOrderRecapChange} />
                 </div>
             </div>
             <div className="submitBtnContainer w-100 d-flex justify-content-center">
-                <button className="submitOrder">Valider et payer</button>
+                <button className="submitOrder" onClick={handleSubmitOrder}>Valider et payer</button>
             </div>
         </section>
 
