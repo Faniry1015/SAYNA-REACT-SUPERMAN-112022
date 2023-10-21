@@ -34,10 +34,10 @@ function DeliveryMethod({onDeliveryChange}) {
 
     const handleStateChange = (e) => {
         if (e.target.id === 'deliveryMethod') {
-            setDelivery((state) => ({ ...delivery, deliveryMethod: e.target.value }))
-            onDeliveryChange({ ...delivery, deliveryMethod: e.target.value })
+                setDelivery((delivery) => ({ ...delivery, deliveryMethod: e.target.value }))
+                onDeliveryChange({ ...delivery, deliveryMethod: e.target.value })
         } else {
-            setDelivery((state) => ({ ...delivery, deliveryAdress: e.target.value }))
+            setDelivery((delivery) => ({ ...delivery, deliveryAdress: e.target.value }))
             onDeliveryChange({ ...delivery, deliveryAdress: e.target.value })
         }
 

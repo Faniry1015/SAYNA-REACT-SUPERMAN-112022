@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import OrderRecapMain from '../components/OrderRecapMain'
 import { Link } from 'react-router-dom'
 import '../styles/DeliveryPayment.css'
@@ -11,18 +11,29 @@ function DeliveryPayment() {
     const [orderData, setOrderData] = useState({})
 
     const handleInfoPersChange = (infoPersData) => {
-        setOrderData({...orderData, ...infoPersData, password: 'hide'})
-    }
-
-    const handleDeliveryChange = (deliveryData) => {
-        setOrderData({...orderData, ...deliveryData})
-    }
-
-    const handlePaymentChange = (paymentData) => {
-        setOrderData({...orderData, ...paymentData})
-    }
-
-
+        // Mettre à jour uniquement les clés liées aux informations personnelles
+        setOrderData((prevData) => ({
+          ...prevData,
+          ...infoPersData,
+          password: 'hide',
+        }));
+      };
+    
+      const handleDeliveryChange = (deliveryData) => {
+        // Mettre à jour uniquement les clés liées à la livraison
+        setOrderData((prevData) => ({
+          ...prevData,
+          ...deliveryData,
+        }));
+      };
+    
+      const handlePaymentChange = (paymentData) => {
+        // Mettre à jour uniquement les clés liées au paiement
+        setOrderData((prevData) => ({
+          ...prevData,
+          ...paymentData,
+        }));
+      };
 
     return (<>
         <section>
