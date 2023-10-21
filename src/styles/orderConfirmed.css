@@ -2,3 +2,8 @@
     max-width: 800px;
     font-size: 1.2em;
 }
+
+.orderConfirmedImg .backgroundImg{
+    width: 100%;
+    left: 0;
+}

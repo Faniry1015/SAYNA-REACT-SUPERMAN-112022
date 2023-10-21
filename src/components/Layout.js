@@ -8,6 +8,7 @@ import home from "../assets/images/img1.png"
 import eshop from "../assets/images/img20.png"
 import compte from "../assets/images/img37.png"
 import signup from "../assets/images/img19.png"
+import orderConfirmed from "../assets/images/img23.png"
 
 function Layout() {
   const location = useLocation();
@@ -22,6 +23,9 @@ function Layout() {
   } else if (location.pathname ==='/eshop/cart') {
     bgImg = '';
     bgClass =''
+  } else if (location.pathname ==='/eshop/cart/orderRecap/deliveryPayment/orderConfirmed') {
+    bgImg = orderConfirmed;
+    bgClass ='bgRadiant orderConfirmedImg'
   }else if (location.pathname === '/compte') {
     bgImg = compte;
     bgClass = 'compteRadiant'
@@ -42,8 +46,8 @@ function Layout() {
   return (
     <>
       <div id="appContainer" className={bgClass}>
-        <div className='backgroundImg'>
-          <img src={bgImg} alt="background-image" />
+        <div className='backgroundImg w-100'>
+          <img src={bgImg} alt="background-image" className='backgroundImg'/>
         </div>
         <div id="appBody">
           <SideSocial />
