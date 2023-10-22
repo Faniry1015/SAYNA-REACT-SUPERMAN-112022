@@ -10,7 +10,7 @@ function OrderRecap() {
     }
 
     return (<>
-        <div className="row mb-5 mt-5">
+        <section className="mb-5 mt-5">
             <div className="d-flex justify-content-between">
                 <nav>
                     <ul className="breadcrumb">
@@ -25,7 +25,7 @@ function OrderRecap() {
                     </ul>
                 </nav>
             </div>
-        </div>
+        </section>
         <OrderRecapMain onOrderRecapChange={handleOrderRecapChange}/>
         <section id='orderRecapBtn' className="container container-largeur d-flex justify-content-center align-items-center">
             <Link to='/eshop'>

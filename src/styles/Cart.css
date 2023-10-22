@@ -1,5 +1,6 @@
 .container-largeur {
-    width: 70%;
+    max-width: 800px;
+    min-width: 300px;
     margin: 0 auto;
 }
 
