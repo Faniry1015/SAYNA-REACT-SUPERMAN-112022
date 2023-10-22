@@ -13,7 +13,7 @@ function MonCompteInfoPers({ selected }) {
     const [userData, setUserData] = useState({ newsletter: false })
     //handle newsletter change from here (NOT INFO PERS which is also used in payment and delivery page)
     const getUserInfo = async () => {
-        if (user.email) {
+        if (user && user.email) {
             try {
                 const userRef = doc(db, "usersDetails", user.email);
                 const userSnap = await getDoc(userRef);

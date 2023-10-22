@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from '../firebase-config';
 import { UserAuth } from '../context/AuthContext';
+import '../styles/MonCompteHistoriqueAchat.css'
 
-function MonCompteFavoris({ title, children, selected }) {
+function MonCompteHistoriqueAchat({ title, selected }) {
     const { user } = UserAuth()
     const [orderHistoryData, setOrderHistoryData] = useState([])
+    const [detailsVisibility, setDetailsVisibility] = useState(false)
 
     const userOrderHistory = async () => {
         if (user && user.email) {
@@ -18,7 +20,7 @@ function MonCompteFavoris({ title, children, selected }) {
                     //   console.log(doc.id, " => ", doc.data());
                     orderHistoryArray.push(doc.data())
                 });
-                
+
                 setOrderHistoryData(filterOrderHistory(orderHistoryArray))
             } catch (error) {
                 console.error("Erreur lors de la récupération de l'historique de commandes :", error);
@@ -35,12 +37,13 @@ function MonCompteFavoris({ title, children, selected }) {
             articlesInfo.forEach(article => {
                 const articlesInfoToKeep = ['nom', 'quantité', 'prix', 'prixTotalArticles']
 
-                filteredArticlesInfo = Object.keys(article).reduce((articleInfo, key) => {
+                const usefullArticleInfo = Object.keys(article).reduce((articleInfo, key) => {
                     if (articlesInfoToKeep.includes(key)) {
                         articleInfo[key] = article[key];
                     }
                     return articleInfo;
                 }, {});
+                filteredArticlesInfo.push(usefullArticleInfo)
             });
 
             return {
@@ -53,15 +56,45 @@ function MonCompteFavoris({ title, children, selected }) {
 
     }
 
+    const orderDate = (dataDate) => {
+        const dateAvecHeure = new Date(dataDate.date.seconds * 1000)
+        return dateAvecHeure.toLocaleDateString()
+
+    }
+
+    const handleDetailsVisibility = () => {
+        setDetailsVisibility(!detailsVisibility)
+    }
+
     useEffect(() => {
         userOrderHistory()
     }, [user])
 
     return (<>
-        {JSON.stringify(orderHistoryData)}
-        <div hidden={!selected}>
+        {/* {JSON.stringify(orderHistoryData)} */}
+        <div hidden={!selected} className='orderHistoryMainContainer'>
             <h3>{title}</h3>
-            <p>{children}</p>
+            <ul className='m-4'>
+                {orderHistoryData.map(order => {
+                    return <li key={orderHistoryData.indexOf(order) + 1} className='mb-4'>
+                        <h5 className='d-inline orderHistoryLabel'>Achat n° {orderHistoryData.indexOf(order) + 1} :</h5> le {orderDate(order)} pour un montant total de {order.totalPayment}€
+                        <ul hidden={detailsVisibility} >
+                            {order.filteredArticlesInfo.map(article => (
+                                <li key={article.nom}>
+                                    <h5 className='mb-0 mt-2'>{article.nom}</h5>
+                                    <ul>
+                                        <li>Quantité: {article.quantité}</li>
+                                        <li>Prix total: {article.prixTotalArticles}€</li>
+                                    </ul>
+                                </li>
+                            ))}
+                        </ul>
+                    </li>
+                })}
+            </ul>
+            <div className="showDetailsBtnContainer">
+                <button onClick={handleDetailsVisibility}>Détaillé les achats</button>
+            </div>
         </div>
 
     </>
@@ -69,4 +102,4 @@ function MonCompteFavoris({ title, children, selected }) {
     )
 }
 
-export default MonCompteFavoris
+export default MonCompteHistoriqueAchat

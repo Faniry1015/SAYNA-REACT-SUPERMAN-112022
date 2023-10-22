@@ -1,9 +1,9 @@
-li {
+.monCompte__infoPersContainer li {
     list-style-type: none;
     margin-bottom: 10px;
 }
 
-ul {
+.monCompte__infoPersContainer ul {
     padding: 0;
 }
 
