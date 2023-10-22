@@ -77,14 +77,14 @@ function MonCompteHistoriqueAchat({ title, selected }) {
             <ul className='m-4'>
                 {orderHistoryData.map(order => {
                     return <li key={orderHistoryData.indexOf(order) + 1} className='mb-4'>
-                        <h5 className='d-inline orderHistoryLabel'>Achat n° {orderHistoryData.indexOf(order) + 1} :</h5> le {orderDate(order)} pour un montant total de {order.totalPayment}€
+                        <h5 className='d-inline orderHistoryLabel'>Achat n° {orderHistoryData.indexOf(order) + 1} :</h5> le {orderDate(order)} pour un montant de <strong>{order.totalPayment}€</strong> TTC
                         <ul hidden={detailsVisibility} >
                             {order.filteredArticlesInfo.map(article => (
                                 <li key={article.nom}>
                                     <h5 className='mb-0 mt-2'>{article.nom}</h5>
                                     <ul>
                                         <li>Quantité: {article.quantité}</li>
-                                        <li>Prix total: {article.prixTotalArticles}€</li>
+                                        <li>Total (hors réduction): {article.prixTotalArticles}€</li>
                                     </ul>
                                 </li>
                             ))}
