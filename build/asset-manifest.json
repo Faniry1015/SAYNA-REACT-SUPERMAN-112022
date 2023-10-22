@@ -1,0 +1,40 @@
+{
+  "files": {
+    "main.css": "/static/css/main.672250b7.css",
+    "main.js": "/static/js/main.13588d13.js",
+    "static/media/img23.png": "/static/media/img23.25a47a1f1e7150623250.png",
+    "static/media/bo-man-of-steel.mp4": "/static/media/bo-man-of-steel.b409f2af0f90ea937795.mp4",
+    "static/media/img3.png": "/static/media/img3.810a30e31b3a94e97980.png",
+    "static/media/img20.png": "/static/media/img20.28ad15472d81d737a3eb.png",
+    "static/media/img4.png": "/static/media/img4.47dda93c3bd7b8a1de2b.png",
+    "static/media/img1.png": "/static/media/img1.8b5ee7de8a51a93d0ce6.png",
+    "static/media/img19.png": "/static/media/img19.fd33cdf0c0eaad494074.png",
+    "static/media/img15.png": "/static/media/img15.02dd7977dd9d8cc3cc2c.png",
+    "static/media/img37.png": "/static/media/img37.bace6f810ec35d64493d.png",
+    "static/media/Rajdhani-Bold.ttf": "/static/media/Rajdhani-Bold.1c37876ed84379b829b1.ttf",
+    "static/media/Rajdhani-SemiBold.ttf": "/static/media/Rajdhani-SemiBold.3ab757d60eaa632de96a.ttf",
+    "static/media/Rajdhani-Medium.ttf": "/static/media/Rajdhani-Medium.bc852e7b1d43f40d7a51.ttf",
+    "static/media/Rajdhani-Light.ttf": "/static/media/Rajdhani-Light.ddb4628c0aedac91c7f7.ttf",
+    "static/media/Rajdhani-Regular.ttf": "/static/media/Rajdhani-Regular.49dd62776142770879fc.ttf",
+    "static/media/img5.png": "/static/media/img5.3263fa039230c076d678.png",
+    "static/media/img2.png": "/static/media/img2.e6f1d0cb0674662e31de.png",
+    "static/media/img7.png": "/static/media/img7.877253627adb2597c697.png",
+    "static/media/img8.png": "/static/media/img8.9e15dcbde31249ca2bef.png",
+    "static/media/img9.png": "/static/media/img9.dc349141e19716ed495a.png",
+    "static/media/img10.png": "/static/media/img10.bfa4caa71bcb998ff07d.png",
+    "static/media/img6.png": "/static/media/img6.48fab931cddcc63a46c0.png",
+    "static/media/img12.png": "/static/media/img12.631edd81a72da4facf19.png",
+    "static/media/Cantarell-BoldItalic.ttf": "/static/media/Cantarell-BoldItalic.ccd7d5a8e7d1e155c597.ttf",
+    "static/media/Cantarell-Bold.ttf": "/static/media/Cantarell-Bold.af4e66df255b34f93398.ttf",
+    "static/media/Cantarell-Regular.ttf": "/static/media/Cantarell-Regular.f702674118a4dbac26b6.ttf",
+    "static/media/Adventure.otf": "/static/media/Adventure.9677cd8d8e48154cdfab.otf",
+    "static/media/logoDC.png": "/static/media/logoDC.f445b9811ec0490f524f.png",
+    "index.html": "/index.html",
+    "main.672250b7.css.map": "/static/css/main.672250b7.css.map",
+    "main.13588d13.js.map": "/static/js/main.13588d13.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.672250b7.css",
+    "static/js/main.13588d13.js"
+  ]
+}
