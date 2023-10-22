@@ -60,7 +60,7 @@ function MonCompteInfoPersMain({ selected, onInfoPersChange }) {
         }
     }
 
-    const { nom, prenom, email, adress, phone, password, newsletter } = userData
+    const { nom, prenom, email, adress, phone, password } = userData
     return (
         <>
             <section className='monCompte__infoPersContainer'>

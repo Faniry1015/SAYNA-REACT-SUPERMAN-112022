@@ -16,7 +16,7 @@ function PaymentMethod({onPaymentChange}) {
 
     useEffect(() => {
         onPaymentChange(payment)
-    }, [])
+    }, [payment])
 
     const {paymentMethod, paymentDetail} = payment
     return (

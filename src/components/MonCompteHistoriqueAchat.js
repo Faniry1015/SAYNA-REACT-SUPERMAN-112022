@@ -84,7 +84,7 @@ function MonCompteHistoriqueAchat({ title, selected }) {
                                     <h5 className='mb-0 mt-2'>{article.nom}</h5>
                                     <ul>
                                         <li>Quantité: {article.quantité}</li>
-                                        <li>Total (hors réduction): {article.prixTotalArticles}€</li>
+                                        <li>Total (HT et hors réduction): {article.prixTotalArticles}€</li>
                                     </ul>
                                 </li>
                             ))}
