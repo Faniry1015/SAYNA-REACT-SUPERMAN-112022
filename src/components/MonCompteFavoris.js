@@ -16,12 +16,10 @@ function MonCompteFavoris({ title, children, selected }) {
                 const orderHistoryArray = []
                 querySnapshot.forEach((doc) => {
                     //   console.log(doc.id, " => ", doc.data());
-                    const orderData = doc.data()
-                    console.log(orderData)
-                    filterOrderHistory(orderData)
-                    orderHistoryArray.push(orderData)
+                    orderHistoryArray.push(doc.data())
                 });
-                setOrderHistoryData(orderHistoryArray)
+                
+                setOrderHistoryData(filterOrderHistory(orderHistoryArray))
             } catch (error) {
                 console.error("Erreur lors de la récupération de l'historique de commandes :", error);
             }
@@ -29,7 +27,7 @@ function MonCompteFavoris({ title, children, selected }) {
     }
 
     const filterOrderHistory = (data) => {
-        data.map((order) => {
+        const datafiltered = data.map((order) => {
             const { date, articlesAndAmountToPay } = order
             const { allAmountDetails, articlesInfo } = articlesAndAmountToPay
 
@@ -51,6 +49,7 @@ function MonCompteFavoris({ title, children, selected }) {
                 totalPayment: allAmountDetails.totalPayement
             }
         })
+        return datafiltered
 
     }
 
