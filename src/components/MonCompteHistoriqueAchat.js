@@ -70,6 +70,10 @@ function MonCompteHistoriqueAchat({ title, selected }) {
         userOrderHistory()
     }, [user])
 
+    useEffect(() => {
+        setDetailsVisibility(false)
+    }, [])
+
     return (<>
         {/* {JSON.stringify(orderHistoryData)} */}
         <div hidden={!selected} className='orderHistoryMainContainer'>
@@ -93,7 +97,7 @@ function MonCompteHistoriqueAchat({ title, selected }) {
                 })}
             </ul>
             <div className="showDetailsBtnContainer">
-                <button onClick={handleDetailsVisibility}>Détaillé les achats</button>
+                <button onClick={handleDetailsVisibility}>Plus de Détails / Moins de détails sur les achats</button>
             </div>
         </div>
 
