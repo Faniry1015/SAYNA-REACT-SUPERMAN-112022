@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { db } from '../firebase-config';
-import { doc, getDoc } from 'firebase/firestore';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
 import '../styles/ProductDetail.css'
+import { UserAuth } from '../context/AuthContext';
 
 
 function ProductDetail() {
@@ -28,6 +29,23 @@ function ProductDetail() {
     useEffect(() => {
         getCurrentProduct()
     }, [])
+
+    //Ajouter au panier
+    const { user } = UserAuth()
+    let product_cart = {};
+
+    const addToCart = async () => {
+        product_cart = productData
+        product_cart['quantité'] = 1
+        product_cart['prixTotalArticles'] = product_cart.quantité * product_cart.prix
+  
+        try {
+           //Pour éviter qu'un produit puisse être ajouter plusieurs fois dans le panier
+           await setDoc(doc(db, `Cart-${user.uid}`, productData.nom), product_cart);
+        } catch (e) {
+           console.log(e.message)
+        }
+     }
 
     const { nom, description, imgUrl, prix } = productData
 
@@ -62,7 +80,7 @@ function ProductDetail() {
                             </div>
                         </div>
                         <div className="btnContainer my-5">
-                            <button>Ajouter au panier</button><button>heart</button>
+                            <button onClick={addToCart}>Ajouter au panier</button><button>heart</button>
                         </div>
 
                         <hr />

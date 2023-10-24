@@ -33,6 +33,15 @@ export function Tabs({ children }) {
         togglePopup();
     };
 
+    const handleTabStatus = (e) => {
+        const liLink = e.target.parentNode
+        const liArray = Array.from(liLink.parentNode.children)
+        liArray.map((el) => {
+            el.classList.remove("active")
+        })
+        liLink.classList.add("active")
+    }
+
     return (
         <>
             <section className='monCompte__mainSection'>
@@ -41,9 +50,20 @@ export function Tabs({ children }) {
                         <nav className='monCompte__nav'>
                             <ul>
                                 {newChildren.map((child) => {
-                                    return <li key={child.key}>
-                                        <Link onClick={() => setCurrent(child.key)} className={child.selected}>{child.props.title}</Link>
-                                    </li>
+                                    return (
+                                        <li key={child.key}>
+                                            <Link
+                                                onClick={(e) => {
+                                                    handleTabStatus(e)
+                                                    setCurrent(child.key)
+                                                }
+                                                }
+                                                className={child.selected}
+                                            >
+                                                {child.props.title}
+                                            </Link>
+                                        </li>
+                                    );
                                 })}
                             </ul>
                             <button className="logoff" onClick={togglePopup}>Déconnexion</button>
@@ -56,7 +76,7 @@ export function Tabs({ children }) {
             </section>
             {isOpen && (<div className='monCompte__popupBoxContainer'>
                 <span className="close-button" onClick={togglePopup}>
-                <i className="fa-solid fa-3x fa-xmark"></i>
+                    <i className="fa-solid fa-3x fa-xmark"></i>
                 </span>
                 <div className="popup-content">
                     <p>Êtes-vous sûr de vouloir vous déconnecter ?</p>

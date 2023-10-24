@@ -7,7 +7,7 @@ import '../styles/MonCompteHistoriqueAchat.css'
 function MonCompteHistoriqueAchat({ title, selected }) {
     const { user } = UserAuth()
     const [orderHistoryData, setOrderHistoryData] = useState([])
-    const [detailsVisibility, setDetailsVisibility] = useState(false)
+    const [detailsVisibility, setDetailsVisibility] = useState(true)
 
     const userOrderHistory = async () => {
         if (user && user.email) {
@@ -70,12 +70,8 @@ function MonCompteHistoriqueAchat({ title, selected }) {
         userOrderHistory()
     }, [user])
 
-    useEffect(() => {
-        setDetailsVisibility(false)
-    }, [])
-
     return (<>
-        {/* {JSON.stringify(orderHistoryData)} */}
+        {/* {JSON.stringify(detailsVisibility)} */}
         <div hidden={!selected} className='orderHistoryMainContainer'>
             <h3>{title}</h3>
             <ul className='m-4'>
@@ -96,8 +92,8 @@ function MonCompteHistoriqueAchat({ title, selected }) {
                     </li>
                 })}
             </ul>
-            <div className="showDetailsBtnContainer">
-                <button onClick={handleDetailsVisibility}>Plus de Détails / Moins de détails sur les achats</button>
+            <div className="showDetailsBtnContainer d-flex justify-content-center">
+            {detailsVisibility ? <button onClick={handleDetailsVisibility}>Plus de Détails</button> : <button onClick={handleDetailsVisibility}>Moins de détails</button>}
             </div>
         </div>
 
