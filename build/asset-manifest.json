@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.672250b7.css",
-    "main.js": "/static/js/main.ebd3dc99.js",
+    "main.js": "/static/js/main.2b73b592.js",
     "static/media/img23.png": "/static/media/img23.25a47a1f1e7150623250.png",
     "static/media/bo-man-of-steel.mp4": "/static/media/bo-man-of-steel.b409f2af0f90ea937795.mp4",
     "static/media/img3.png": "/static/media/img3.810a30e31b3a94e97980.png",
@@ -31,10 +31,10 @@
     "static/media/logoDC.png": "/static/media/logoDC.f445b9811ec0490f524f.png",
     "index.html": "/index.html",
     "main.672250b7.css.map": "/static/css/main.672250b7.css.map",
-    "main.ebd3dc99.js.map": "/static/js/main.ebd3dc99.js.map"
+    "main.2b73b592.js.map": "/static/js/main.2b73b592.js.map"
   },
   "entrypoints": [
     "static/css/main.672250b7.css",
-    "static/js/main.ebd3dc99.js"
+    "static/js/main.2b73b592.js"
   ]
 }
