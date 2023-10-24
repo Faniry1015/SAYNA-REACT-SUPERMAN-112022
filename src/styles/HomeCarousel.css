@@ -11,16 +11,20 @@
     border: none;
 }
 
-.carousel-root .control-arrow.control-next::before {
-    content:none important!
+.carousel-root .control-arrow.control-next::before,
+.carousel-root .control-arrow.control-prev::before
+ {
+    border:0;
 }
 
 .control-arrow img {
     max-width: 50px;
+    padding: 0;
 }
 
-.control-arrow:hover {
+.carousel-root .carousel.carousel-slider  .control-arrow:hover {
     filter: brightness(200%);
+    background: none;
 }
 
 .sec5__carrousContain__main {
