@@ -172,15 +172,13 @@ function Eshop() {
             </div>
          </FadeIn>
 
-         <FadeIn>
-            <section className="container pt-5">
-               <div className="float-end mb-5">
+            <div className="cartContainer pt-5">
+               <div className="cartContainer2 float-end mb-5">
                   <Link to='/eshop/cart'>
                      <i className="fa-solid fa-4x fa-fade fa-cart-shopping"></i>
                   </Link>
                </div>
-            </section>
-         </FadeIn>
+            </div>
 
          <FadeIn>
             <section className="productsMainContainer mt-5">

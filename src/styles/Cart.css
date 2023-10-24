@@ -46,3 +46,17 @@
     color: #bebebe;
     margin-bottom: 20px;
 }
+
+.cartContainer {
+    min-height: fit-content;
+    position: sticky;
+    margin: 0px;
+    top : 50px;
+    right: 0px;
+    z-index: 10000;
+}
+
+.cartContainer2{
+    position: relative;
+    right: -3%
+}

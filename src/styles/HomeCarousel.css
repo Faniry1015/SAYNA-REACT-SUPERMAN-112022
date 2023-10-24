@@ -1,0 +1,63 @@
+/*SECTION 5 : multimédia*/
+.sec5__carrousContain {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.control-arrow {
+    background: none;
+    border: none;
+    border: none;
+}
+
+.carousel-root .control-arrow.control-next::before {
+    content:none important!
+}
+
+.control-arrow img {
+    max-width: 50px;
+}
+
+.control-arrow:hover {
+    filter: brightness(200%);
+}
+
+.sec5__carrousContain__main {
+    width: 60%;
+    min-width: 300px;
+    display: flex;
+}
+
+.sec5__carrousContain__main__imgContainer {
+    display: flex;
+    align-items: center;
+}
+
+.sec5__carrousContain__main__mediaDescription {
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(135deg, #EDDEBF60, #19587D60);
+    border-radius: 0 10px 10px 0;
+    padding: 5px;
+}
+
+.sec5__carrousContain__main__mediaDescription a {
+    color: white;
+    text-decoration: none;
+}
+
+.sec5__carrousContain__main__mediaDescription__component {
+    font-size: 12px;
+    margin: 5px;
+}
+
+.sec5__carrousContain__main__mediaDescription span {
+    color: #FFFF00;
+}
+
+.sec5__videoDiv__video {
+    width: 100%;
+}
