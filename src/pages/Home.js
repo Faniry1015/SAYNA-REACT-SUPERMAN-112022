@@ -11,9 +11,6 @@ import nemesis3 from '../assets/images/img7.png'
 import allié1 from '../assets/images/img8.png'
 import allié2 from '../assets/images/img9.png'
 import allié3 from '../assets/images/img10.png'
-import leftBtn from '../assets/icones/Polygon-1.png'
-import rightBtn from '../assets/icones/Polygon.png'
-import posterSuperman from '../assets/images/img12.png'
 import boManOfSteel from '../assets/videos/bo-man-of-steel.mp4'
 import boManOfSteelPoster from '../assets/images/img15.png'
 import FadeIn from '../components/FadeIn';
@@ -151,29 +148,7 @@ function Home() {
                 <section className="reveal">
                     <div className="sec5">
                         <h2>Batman vs Superman</h2>
-                        <div className="sec5__carrousContain">
-                            <button>
-                                <img src={leftBtn} alt="Flèche gauche" />
-                            </button>
-                            {/* Affiche MAN OF STEEL */}
-                            <div className="sec5__carrousContain__main">
-                                <div className="sec5__carrousContain__main__imgContainer">
-                                    <img src={posterSuperman} alt="Superman Man of Steel" />
-                                </div>
-                                <div className="sec5__carrousContain__main__mediaDescription">
-
-                                    <div className="sec5__carrousContain__main__mediaDescription__component">ACTION, ADVENTURE</div>
-                                    <h3 className="sec5__carrousContain__main__mediaDescription__component">Superman Man of Steel</h3>
-                                    <div className="sec5__carrousContain__main__mediaDescription__component">IMDB :<span>7.1</span></div>
-                                    <p className="sec5__carrousContain__main__mediaDescription__component">
-                                        Le jeune Bruce Wayne assiste impuissant au meurtre de ses parents. Profondément traumatisé, il grandit obnubilé par un désir de vengeance. La Ligue des ombres, une secte de guerriers ninja dirigée par Ra's al Ghul, se chargera de son entraînement. De retour chez lui à Gotham, avec l'aide de son majordome Alfred Pennyworth, Bruce Wayne se lance alors dans la lutte contre le crime sous le nom de Batman.
-                                    </p>
-                                </div>
-                            </div>
-                            <button>
-                                <img src={rightBtn} alt="Flèche droite" />
-                            </button>
-                        </div>
+                        <HomeCarousel />
                         <div id="BatmanTrailerVid" className="sec5__videoDiv">
                             <video className="sec5__videoDiv__video" src={boManOfSteel} type="video/mkv" poster={boManOfSteelPoster} controls></video>
                         </div>
@@ -202,9 +177,6 @@ function Home() {
                     </div>
                 </section>
             </FadeIn>
-            <section>
-            <HomeCarousel />
-            </section>
         </main>
     );
 }

@@ -55,3 +55,34 @@
  .header__divLogo img {
     width: 100%
  }
+
+ /*Burger menu*/
+ .burger-menu {
+    position: relative;
+  }
+  
+  .burger-button {
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .menu-list {
+    display: none;
+    list-style: none;
+    padding: 0;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background: transparent;
+    z-index: 1;
+  }
+  
+  .menu-list li {
+    padding: 10px;
+  }
+  
+  .burger-menu.open .menu-list {
+    display: block;
+  }

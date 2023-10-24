@@ -5,16 +5,19 @@
     margin: 20px 0;
 }
 
-.control-arrow {
-    background: none;
-    border: none;
-    border: none;
-}
-
 .carousel-root .control-arrow.control-next::before,
 .carousel-root .control-arrow.control-prev::before
  {
     border:0;
+}
+
+.carousel-root .carousel.carousel-slider .control-arrow{
+    background: none;
+    border: none;
+    border: none;
+    width: 50px;
+    top:0;
+    padding: 0
 }
 
 .control-arrow img {
@@ -27,24 +30,41 @@
     background: none;
 }
 
+.carousel.carousel-slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .sec5__carrousContain__main {
     width: 60%;
     min-width: 300px;
+    max-width: 500px;
+    height: 300px;
     display: flex;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.carousel .slide img{
+    height: 100%;
+    width: 100%;
+    min-width: 100px
 }
 
 .sec5__carrousContain__main__imgContainer {
     display: flex;
     align-items: center;
+    width: 35%;
+    overflow: hidden;
 }
 
 .sec5__carrousContain__main__mediaDescription {
-    width: 85%;
+    width: 65%;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     background: linear-gradient(135deg, #EDDEBF60, #19587D60);
-    border-radius: 0 10px 10px 0;
     padding: 5px;
 }
 

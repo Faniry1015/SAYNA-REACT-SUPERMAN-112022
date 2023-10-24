@@ -17,6 +17,16 @@
     transform: translateX(-50%)
   }
 
+  @media (max-width: 800px) {
+    .illPic {
+      flex-direction: column;  
+    }
+
+    .illPic figure {
+        width: 100%;
+      }
+  }
+
 /*SECTION 1*/
 .sect1 {
     margin: 200px 0 ;

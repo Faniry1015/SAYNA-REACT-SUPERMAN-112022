@@ -113,3 +113,16 @@ opacity: 0.8;
 .sec7__form__div__checkbox label {
     font-family: 'Cantarell';
 }
+
+/*Popup box */
+.popupBox {
+    width: 80%;
+    height: 80%;
+    top: 10%;
+    left: 15%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:  linear-gradient(80deg, #07338C, #B11313);
+}
