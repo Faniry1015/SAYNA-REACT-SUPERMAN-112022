@@ -7,6 +7,12 @@
     font-size: 75px;
 }
 
+@media (max-width: 600px) {
+    #hero h1 {
+        font-size: 50px ;
+    }
+}
+
 .toBottomArrow {
     width: 100% ;
     text-align: center;

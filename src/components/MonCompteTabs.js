@@ -43,10 +43,10 @@ export function Tabs({ children }) {
     }
 
     return (
-        <>
+        <div className='mb-5'>
             <section className='monCompte__mainSection'>
                 <div className="row">
-                    <div className="col-md-4">
+                    <div className="col-md-4 mb-5">
                         <nav className='monCompte__nav'>
                             <ul>
                                 {newChildren.map((child) => {
@@ -84,7 +84,7 @@ export function Tabs({ children }) {
                 </div>
             </div>
             )}
-        </>
+        </div>
 
     )
 }

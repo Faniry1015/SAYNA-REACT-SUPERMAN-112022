@@ -145,7 +145,7 @@ function Home() {
 
             {/* Section 5: Multimédia */}
             <FadeIn>
-                <section className="reveal mb-5">
+                <section className="reveal">
                     <div className="sec5">
                         <h2>Batman vs Superman</h2>
                         <HomeCarousel />

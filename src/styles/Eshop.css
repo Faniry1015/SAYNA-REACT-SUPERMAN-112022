@@ -33,6 +33,11 @@
     font-weight: bold;
 }
 
+.cartContainer {
+    display: sticky;
+    top: 50px;
+}
+
 .fa-cart-shopping:hover {
     color: #1a4292
 }
