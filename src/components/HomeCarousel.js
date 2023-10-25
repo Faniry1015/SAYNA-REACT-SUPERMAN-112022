@@ -21,7 +21,7 @@ function HomeCarousel() {
         </button>
     );
     return (
-        <div>
+        <div className='mb-5'>
             <Carousel autoPlay={true}
                 infiniteLoop={true}
                 showStatus={false}

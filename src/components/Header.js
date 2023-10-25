@@ -1,4 +1,4 @@
-import  React, {useState, useEffect}  from 'react'
+import React, { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import "../styles/Header.css";
 import { UserAuth } from '../context/AuthContext';
@@ -7,20 +7,25 @@ import logoSupermanBlanc from '../assets/logos/logo_blanc.png'
 function Header() {
     const { user } = UserAuth()
 
-    const [isOpen, setIsOpen] = useState(false);
+    const [isLargeScreen, setIsLargeScreen] = useState(true)
+    const [burgerIsVisible, setBurgerIsVisible] = useState(false);
+    const [dropdownIsVisible, setDropdownIsVisible] = useState(false);
 
     const toggleMenu = () => {
-        setIsOpen(!isOpen);
+        setDropdownIsVisible(!dropdownIsVisible);
     };
 
     // Utilisation d'un effet React pour détecter la largeur de l'écran
     useEffect(() => {
         const handleResize = () => {
-            if (window.innerWidth >= 800) {
-                console.log(window.innerWidth)
-                setIsOpen(false); // Ferme le menu si la largeur est supérieure à 800 pixels
+            if (window.innerWidth >= 900) {
+                setIsLargeScreen(true);
+                setBurgerIsVisible(false)
+                setDropdownIsVisible(false)
             } else {
-                setIsOpen(true)
+                setIsLargeScreen(false)
+                setBurgerIsVisible(true)
+                setDropdownIsVisible(false)
             }
         };
 
@@ -38,11 +43,14 @@ function Header() {
                         title="HOME" />
                     </NavLink>
                 </div>
-                <nav className={`burger-menu ${isOpen ? 'open' : ''}`}>
-                    <button onClick={toggleMenu} className="burger-button">
+                <nav className='burger-menu'>
+                    <button onClick={toggleMenu} className={`burger-button burgerBtnClose ${!isLargeScreen && burgerIsVisible && !dropdownIsVisible ? 'close-visible' : ''}`}>
                         ☰
                     </button>
-                    <ul className="menu-list">
+                    <button onClick={toggleMenu} className={`burger-button burgerBtnOpen ${!isLargeScreen && burgerIsVisible && dropdownIsVisible ? 'open-visible' : ''}`}>
+                    ✕
+                    </button>
+                    <ul className={`menu-list ${isLargeScreen ? 'inlineMenuList' : 'burgerMenuList'} ${dropdownIsVisible ? 'isDropDown' : 'hideDropDown'}`}>
                         <li><NavLink to="/">Home</NavLink> </li>
                         <li><NavLink to="eshop">E-Shop</NavLink> </li>
                         {user ? <li><NavLink to="compte">Mon compte</NavLink></li> : (

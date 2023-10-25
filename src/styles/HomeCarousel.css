@@ -39,7 +39,7 @@
 .sec5__carrousContain__main {
     width: 60%;
     min-width: 300px;
-    max-width: 500px;
+    max-width: 700px;
     height: 300px;
     display: flex;
     border-radius: 10px;
@@ -74,8 +74,28 @@
 }
 
 .sec5__carrousContain__main__mediaDescription__component {
-    font-size: 12px;
+    font-size: 14px;
     margin: 5px;
+}
+
+@media (max-width: 800px) {
+    .sec5__carrousContain__main__mediaDescription__component {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 650px) {
+    .sec5__carrousContain__main {
+        flex-direction: column;
+        height: fit-content;
+    }
+
+    .sec5__carrousContain__main__imgContainer,
+    .sec5__carrousContain__main__mediaDescription {
+        width: 100%;
+        height: fit-content
+    }
+    
 }
 
 .sec5__carrousContain__main__mediaDescription span {

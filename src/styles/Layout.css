@@ -15,6 +15,7 @@ body {
 
 .backgroundImg img {
   width: 100%;
+  min-height: 500px;
   z-index: -1 ;
 }
 
