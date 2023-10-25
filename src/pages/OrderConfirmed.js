@@ -28,12 +28,12 @@ function OrderConfirmed() {
             </div>
         </section>
         <section className='orderConfirmed__mainSection d-flex justify-content-center align-items-center flex-column'>
-            <div className="orderConfirmed__btnContainer d-flex justify-content-center align-items-center">
+            <div className="orderConfirmed__btnContainer d-flex justify-content-center align-items-center mt-5 mb-5">
                 <Link to='/eshop'>
-                    <button className='m-5'>Retourner au catalogue</button>
+                    <button className='m-2'>Retourner au catalogue</button>
                 </Link>
                 <Link to='/'>
-                    <button className='m-5'>Revenir à l'accueil</button>
+                    <button className='m-2'>Revenir à l'accueil</button>
                 </Link>
             </div>
             <div className="orderConfirmed__TextContainer text-center m-5">

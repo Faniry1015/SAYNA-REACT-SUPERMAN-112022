@@ -4,10 +4,16 @@
 
 .inscription .formulaire {
     background: radial-gradient(at 200% 50%, #B11313, #07338C);
-    max-width: 85%;
+    width: 85%;
     padding: 60px 10%;
     margin-top: -35px;
     border-radius: 10px;
+}
+
+@media (max-width: 600px) {
+    .inscription .formulaire {
+        width: 100%;
+    }
 }
 
 form {

@@ -69,7 +69,7 @@ function Signup() {
             <FadeIn>
                 <section id='hero'>
                     <div className="hero-signup-image">
-                        <div className="container">
+                        <div className="">
                             <section className="inscription">
                                 <div className="container formulaire">
                                     <div className="head text-center">

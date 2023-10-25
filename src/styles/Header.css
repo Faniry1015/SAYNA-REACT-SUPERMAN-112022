@@ -27,6 +27,15 @@
    text-transform: uppercase;
  }
 
+ @media (max-width: 500px) {
+  .header ul li a {
+    font-size: 25px;
+  }
+  .header ul li {
+    margin: 0;
+  }
+ }
+
  .header .active {
    /*gras et souligné sur la page active*/
    text-decoration-line: underline;
@@ -52,6 +61,7 @@
 
  .header__divLogo {
    width: 125px;
+   z-index: 100000;
  }
 
  @media (max-width: 800px) {
@@ -61,7 +71,8 @@
  }
 
  .header__divLogo img {
-   width: 100%
+   width: 100%;
+   z-index: 100000;
  }
 
  /*Burger menu*/

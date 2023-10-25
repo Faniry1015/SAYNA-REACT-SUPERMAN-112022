@@ -7,3 +7,9 @@
     width: 100%;
     left: 0;
 }
+
+@media (max-width: 450px) {
+    .orderConfirmed__btnContainer {
+        flex-direction: column
+    }
+}
