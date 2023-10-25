@@ -83,6 +83,7 @@
 
  .burger-button {
    display: none;
+   padding: 20px;
    font-size: 40px;
    background: none;
    border: none;
@@ -108,7 +109,7 @@
    list-style: none;
    padding: 0;
    position: absolute;
-   top: 40px;
+   top: 50px;
    right: 0;
    background: transparent;
    z-index: 1;

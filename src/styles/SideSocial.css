@@ -7,7 +7,7 @@ aside {
 aside figure {
   display: flex;
   gap: 10px;
-  margin-top: 20px;
+  margin-top: 10px;
   justify-content: center;
   align-items: center;
 }
@@ -17,9 +17,10 @@ aside img {
 }
 
 
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 600px) {
   aside figure {
       display: initial;
+
   }
   aside {
       position: fixed;

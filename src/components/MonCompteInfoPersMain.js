@@ -20,7 +20,7 @@ function MonCompteInfoPersMain({ selected, onInfoPersChange }) {
 
                 if (userSnap.exists()) {
                     setUserData(userSnap.data())
-                    onInfoPersChange(userSnap.data())
+                    // onInfoPersChange(userSnap.data())
                 } else {
                     console.log("No such document!");
                 }
@@ -47,7 +47,7 @@ function MonCompteInfoPersMain({ selected, onInfoPersChange }) {
             formDataObject[name] = value;
         }
         setUserData({ ...userData, ...formDataObject })
-        onInfoPersChange({ ...userData, ...formDataObject })
+        // onInfoPersChange({ ...userData, ...formDataObject })
         toggleChangeForm()
         // Mise à jour de la bdd firebase
         try {

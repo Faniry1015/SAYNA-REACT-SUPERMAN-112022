@@ -56,7 +56,7 @@ function ProductDetail() {
                     <div className="col-md-4 productImgContainer">
                         <img src={imgUrl} alt="Produit" className="productDetail__productImg" />
                     </div>
-                    <div className="col-md-1">thumbnails</div>
+                    <div className="col-md-1"></div>
                     <div className="col-md-7">
                         <div className='stars'>
                             <i className="fa-regular fa-star" />
@@ -79,8 +79,9 @@ function ProductDetail() {
                                 </select>
                             </div>
                         </div>
-                        <div className="btnContainer my-5">
-                            <button onClick={addToCart}>Ajouter au panier</button><button>heart</button>
+                        <div className="btnContainer m-5">
+                            <button className='mb-3' onClick={addToCart}>Ajouter au panier</button>
+                            <button className='mb-3'>heart</button>
                         </div>
 
                         <hr />

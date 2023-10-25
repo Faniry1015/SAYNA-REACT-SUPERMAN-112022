@@ -12,6 +12,7 @@ import toBottomArrow from '../assets/icones/flèche_down_header.png'
 import FadeIn from "../components/FadeIn";
 
 function Eshop() {
+   const { user } = UserAuth()
    const categorieArray = [
       {
          nom: 'goodies',
@@ -83,11 +84,11 @@ function Eshop() {
 
    useEffect(() => {
       getProducts()
-   }, [user, products])
+      // eslint-disable-next-line
+   }, [user])
 
 
    //Ajouter un produit au panier
-   const { user } = UserAuth()
    let product_cart = {};
 
    const addToCart = async (product) => {

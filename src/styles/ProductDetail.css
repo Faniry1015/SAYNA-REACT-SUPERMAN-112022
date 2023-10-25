@@ -11,3 +11,9 @@ font-size: 4em;
 .productImgContainer img {
     width: 100%
 }
+
+@media (max-width: 900px) {
+    .ProductDetailContainer {
+        margin-top: 250px;
+    }
+}

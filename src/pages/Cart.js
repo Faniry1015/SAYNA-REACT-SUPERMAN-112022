@@ -31,6 +31,7 @@ function Cart() {
 
   useEffect(function () {
     getAllCartProduct()
+    // eslint-disable-next-line
   }, [user])
 
   //Gestion des produits dans le panier
@@ -118,63 +119,64 @@ function Cart() {
     return numberString;
   }
 
-  return (<>
-    <div className="container container-largeur mb-5">
-      <div className="row mb-5 mt-5">
-        <div className="d-flex justify-content-between">
-          <nav>
-            <ul className="breadcrumb">
-              <li className="breadcrumb-item"><Link to="/eshop" >E-shop </Link></li><span>&nbsp;/&nbsp;</span>
-              <li className="breadcremb-item active"><span className='cartInactiveLabel'>
-                Panier
-              </span>
-              </li>
-            </ul>
-          </nav>
+  return (
+    <section >
+      <div className="container container-largeur mb-5">
+        <div className="row mb-5 mt-5">
+          <div className="d-flex justify-content-between">
+            <nav>
+              <ul className="breadcrumb">
+                <li className="breadcrumb-item"><Link to="/eshop" >E-shop </Link></li><span>&nbsp;/&nbsp;</span>
+                <li className="breadcremb-item active"><span className='cartInactiveLabel'>
+                  Panier
+                </span>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <div className="recap">
+          <h3>Récapitulatif du panier</h3>
         </div>
       </div>
-      <div className="recap">
-        <h3>Récapitulatif du panier</h3>
-      </div>
-    </div>
-    {cartProducts.length > 0 && <>
-      <div className="product-box container-largeur mb-5">
-        <CartProducts cartProducts={cartProducts} deleteItem={deleteItem} qttChange={qttChange} />
-      </div>
+      {cartProducts.length > 0 && <>
+        <div className="product-box container-largeur mb-5">
+          <CartProducts cartProducts={cartProducts} deleteItem={deleteItem} qttChange={qttChange} />
+        </div>
 
-      <div className="sous-total container-largeur">
-        <h3 className="">
-          <span>Nombre total d'Articles : </span><strong> {padSingleDigit(state.totalArticles)}</strong>
-        </h3>
-        <h3>
-          <span>Total à payer :</span><strong> {padSingleDigit(state.totalPayment)}€</strong>
-        </h3>
-        <hr />
-      </div>
-      <section className="container container-largeur d-flex justify-content-center align-items-center">
-        <Link to='/eshop'>
-          <button className="mx-2">Continuer mes achats</button>
-        </Link>
-        <Link to='/eshop/cart/orderRecap'>
-          <button className="mx-2">
-            Passer commande
-          </button>
-        </Link>
-      </section>
-      {/* {cartProducts.length}
-      {JSON.stringify(cartProducts)} */}
-    </>}
-    {
-      cartProducts.length <= 0 && <>
-        <h2 className="text-center mb-5">Ton panier est vide</h2>
-        <div className="container-largeur d-flex justify-content-center">
-          <Link to='/eshop'>
-            <button>Faire des Achats</button>
-          </Link>
+        <div className="sous-total container-largeur">
+          <h3 className="">
+            <span>Nombre total d'Articles : </span><strong> {padSingleDigit(state.totalArticles)}</strong>
+          </h3>
+          <h3>
+            <span>Total à payer :</span><strong> {padSingleDigit(state.totalPayment)}€</strong>
+          </h3>
+          <hr />
         </div>
-      </>
-    }
-  </>
+        <section className="container container-largeur d-flex justify-content-center align-items-center">
+          <Link to='/eshop'>
+            <button className="mx-2">Continuer mes achats</button>
+          </Link>
+          <Link to='/eshop/cart/orderRecap'>
+            <button className="mx-2">
+              Passer commande
+            </button>
+          </Link>
+        </section>
+        {/* {cartProducts.length}
+      {JSON.stringify(cartProducts)} */}
+      </>}
+      {
+        cartProducts.length <= 0 && <>
+          <h2 className="text-center mb-5">Ton panier est vide</h2>
+          <div className="container-largeur d-flex justify-content-center">
+            <Link to='/eshop'>
+              <button>Faire des Achats</button>
+            </Link>
+          </div>
+        </>
+      }
+    </section>
   )
 }
 
