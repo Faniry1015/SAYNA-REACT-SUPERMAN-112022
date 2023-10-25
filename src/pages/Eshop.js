@@ -83,7 +83,7 @@ function Eshop() {
 
    useEffect(() => {
       getProducts()
-   }, [])
+   }, [user, products])
 
 
    //Ajouter un produit au panier
