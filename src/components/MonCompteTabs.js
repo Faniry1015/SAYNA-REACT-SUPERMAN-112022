@@ -78,7 +78,7 @@ export function Tabs({ children }) {
                 <span className="close-button" onClick={togglePopup}>
                     <i className="fa-solid fa-3x fa-xmark"></i>
                 </span>
-                <div className="popup-content">
+                <div className="popup-content d-flex justify-content-center align-items-center flex-column">
                     <p>Êtes-vous sûr de vouloir vous déconnecter ?</p>
                     <button onClick={handleConfirm}>Confirmer</button>
                 </div>
