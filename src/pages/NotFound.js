@@ -1,20 +1,19 @@
 import React from 'react'
-import Img404 from '../assets/images/404Error.jpg'
+import image404 from '../assets/images/404Error.jpg'
+import { Link } from 'react-router-dom'
 
 function NotFound() {
   return (
     <section>
-        <div className="row">
-            <div className="col-md-6 mt-5">
-                <img src={Img404} alt="" className="img-fluid" />
-            </div>
-            <div className="col-md-6 text-center mt-5">
-                <h1>404 ERROR</h1>
-                <h6>Cette page n'existe pas ou n'existe plus</h6>
-                <button className='btnContain__btn'>Allez à notre page d'accueil</button>
-                <button className='btnContain__btn'>Voir nos produits</button>
-            </div>
+      <div className="d-flex justify-content-center align-items-center mb-4 ">
+        <Link to="/"><button className='btnContain__btn'>Aller à la page d'accueil</button></Link>
+        <Link to="/eshop"><button className='btnContain__btn'>Voir nos produits</button></Link>
+      </div>
+      <div className="d-flex flex-column align-items-center">
+        <div className="">
+          <img src={image404} alt="" className="img-fluid " />
         </div>
+      </div>
     </section>
   )
 }

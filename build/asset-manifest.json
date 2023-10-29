@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.1fc65fa7.css",
-    "main.js": "/static/js/main.2bf8fc81.js",
+    "main.js": "/static/js/main.ab35fdb1.js",
     "static/media/img23.png": "/static/media/img23.25a47a1f1e7150623250.png",
     "static/media/bo-man-of-steel.mp4": "/static/media/bo-man-of-steel.b409f2af0f90ea937795.mp4",
     "static/media/img3.png": "/static/media/img3.810a30e31b3a94e97980.png",
@@ -30,13 +30,14 @@
     "static/media/Cantarell-Bold.ttf": "/static/media/Cantarell-Bold.af4e66df255b34f93398.ttf",
     "static/media/Cantarell-Regular.ttf": "/static/media/Cantarell-Regular.f702674118a4dbac26b6.ttf",
     "static/media/Adventure.otf": "/static/media/Adventure.9677cd8d8e48154cdfab.otf",
+    "static/media/404Error.jpg": "/static/media/404Error.626cd4c5b2ca8f0472cc.jpg",
     "static/media/logoDC.png": "/static/media/logoDC.f445b9811ec0490f524f.png",
     "index.html": "/index.html",
     "main.1fc65fa7.css.map": "/static/css/main.1fc65fa7.css.map",
-    "main.2bf8fc81.js.map": "/static/js/main.2bf8fc81.js.map"
+    "main.ab35fdb1.js.map": "/static/js/main.ab35fdb1.js.map"
   },
   "entrypoints": [
     "static/css/main.1fc65fa7.css",
-    "static/js/main.2bf8fc81.js"
+    "static/js/main.ab35fdb1.js"
   ]
 }
