@@ -1,11 +1,12 @@
 import React from 'react'
+import Img404 from '../assets/images/404Error.jpg'
 
 function NotFound() {
   return (
     <section>
         <div className="row">
             <div className="col-md-6 mt-5">
-                <img src={''} alt="" className="img-fluid" />
+                <img src={Img404} alt="" className="img-fluid" />
             </div>
             <div className="col-md-6 text-center mt-5">
                 <h1>404 ERROR</h1>

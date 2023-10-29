@@ -9,6 +9,7 @@ import eshop from "../assets/images/img20.png"
 import compte from "../assets/images/img37.png"
 import signup from "../assets/images/img19.png"
 import orderConfirmed from "../assets/images/img23.png"
+import notFound from '../assets/images/404Error.jpg'
 
 function Layout() {
   const location = useLocation();
@@ -40,7 +41,7 @@ function Layout() {
       bgClass = ''
     } else {
       bgImg = ''
-      bgClass = ''
+      bgClass=''
     }
 
   return (
