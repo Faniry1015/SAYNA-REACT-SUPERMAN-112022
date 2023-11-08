@@ -18,6 +18,7 @@ function ForgotPassword() {
         .then(function () {
             console.log(`Récupération d'email envoyé à ${email}`)
             navigate('/login')
+            alert(`Votre mail de récupération à bien été envoyé à ${email}`)
         })
         .catch(function(e){
             console.log("Erreur de récupération du compte", e)
