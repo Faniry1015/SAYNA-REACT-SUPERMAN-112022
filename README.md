@@ -4,3 +4,7 @@
 
 <h2>Purpose</h2>
 e-commerce website
+
+<h2>Tech</h2>
+React.js
+
