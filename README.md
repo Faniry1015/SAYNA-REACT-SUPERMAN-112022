@@ -7,7 +7,7 @@
 
 
 <h2>Context</h2>
-Final assessment within the front-end track at SAYNA.
+Final assessment within the front-end study at SAYNA.
 
 <h2>Object</h2>
 e-commerce website
