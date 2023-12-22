@@ -13,5 +13,8 @@ Final assessment within the front-end study at SAYNA.
 e-commerce website
 
 <h2>Tech</h2>
-React.js
+<ul>
+<li>React.js</li>
+<li>Firebase</li>
+</ul
 
