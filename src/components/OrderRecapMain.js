@@ -57,7 +57,7 @@ function OrderRecapMain({ onOrderRecapChange }) {
             allCodePromoArray.push({ code: doc.id, value: doc.data().value })
             setAllCodePromo(allCodePromoArray)
         });
-        console.log('Les codes promos sont :', allCodePromoArray)
+        console.info('Les codes promos sont :', allCodePromoArray)
     }
 
     useEffect(function () {
