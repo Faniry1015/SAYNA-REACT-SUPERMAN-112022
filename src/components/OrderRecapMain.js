@@ -57,12 +57,17 @@ function OrderRecapMain({ onOrderRecapChange }) {
             allCodePromoArray.push({ code: doc.id, value: doc.data().value })
             setAllCodePromo(allCodePromoArray)
         });
-        console.info('Les codes promos sont :', allCodePromoArray)
+        allCodePromoArray.forEach((promo) => {
+            console.info(`code promo : ${promo.code} => remise ${promo.value}%`) 
+        })
     }
 
-    useEffect(function () {
-        getAllOrderProduct()
-    }, [user])
+    useEffect(() => {
+        (async () => {
+            await getAllOrderProduct()
+        })()
+    } 
+    , [])
 
     //Modification des sous-totaux
     useEffect(() => {
