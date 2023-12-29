@@ -10,4 +10,3 @@ e-commerce website
 
 <h2>Tech</h2>
 React.js
-

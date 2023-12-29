@@ -82,10 +82,11 @@ function Eshop() {
       }
    }
 
-   useEffect(() => {
-      getProducts()
-      // eslint-disable-next-line
-   }, [user])
+   useEffect( () => {
+      (async () => {
+         await getProducts()
+      })()
+   }, [])
 
 
    //Ajouter un produit au panier
