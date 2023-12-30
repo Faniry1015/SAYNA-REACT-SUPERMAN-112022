@@ -1,35 +1,44 @@
 /*Images d'illustrations Alliés et ennemies*/
 .illPic {
     display: flex;
-    justify-content: space-between;
-    margin: 50px 0;  
-  }
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 50px 0;
+}
 
-  .illPic figure {
-    width: 30%;
+.illPic figure {
+    width: 200px;
+    margin: 15px;
     overflow: hidden
-  }
-  
-  .illPic img {
-    max-height: 400px;
+}
+
+.illPic img {
+    height: 300px;
+    width: auto;
     position: relative;
     left: 50%;
     transform: translateX(-50%)
-  }
+}
 
-  @media (max-width: 800px) {
-    .illPic {
-      flex-direction: column;  
+@media (max-width: 850px) {
+    .illPic figure {
+        width: 100px;
+        margin: 5px;
+        overflow: hidden
     }
 
-    .illPic figure {
-        width: 100%;
-      }
-  }
+    .illPic img {
+        height: 150px;
+        width: auto;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%)
+    }
+}
 
 /*SECTION 1*/
 .sect1 {
-    margin: 200px 0 ;
+    margin: 200px 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -37,44 +46,45 @@
 
 .sect1 h1 {
     font-family: 'Adventure';
-    font-size: 150px ;
+    font-size: 110px;
     font-weight: bold;
 }
+
 .sect1 h2 {
     font-family: 'Adventure';
-    font-size: 50px ;
+    font-size: 50px;
     font-weight: bold;
 }
+
 .sect1__contentDiv {
     margin-left: 25px;
 }
 
-
-@media (max-width: 1000px) {
+@media (max-width: 900px) {
     .sect1 h1 {
-        font-size: 96px ;
-    }
-    .sect1 h2 {
-        font-size: 36px ;
-    }
-    .sect1 {
-        flex-direction: column;
+        font-size: 70px;
     }
 
-    .sect1__logoDc img{
-        width: 200px;
+    .sect1 h2 {
+        font-size: 35px;
+    }
+
+    .sect1__logoDc img {
+        width: 150px;
     }
 }
 
+
 @media (max-width: 600px) {
     .sect1 h1 {
-        font-size: 50px ;
-    }
-    .sect1 h2 {
-        font-size: 24px ;
+        font-size: 40px;
     }
 
-    .sect1__logoDc img{
+    .sect1 h2 {
+        font-size: 24px;
+    }
+
+    .sect1__logoDc img {
         width: 100px;
     }
 }
@@ -98,7 +108,7 @@
     text-align: center;
 }
 
-.sec8__figure blockquote p{
+.sec8__figure blockquote p {
     text-align: center;
     line-height: 1.6;
 }
