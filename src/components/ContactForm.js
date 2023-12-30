@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import '../styles/ContactForm.css'
+import { doc, setDoc } from "firebase/firestore"; 
+import { db } from '../firebase-config';
 
 export const ContactForm = () => {
     const defaultState = {
@@ -13,6 +15,8 @@ export const ContactForm = () => {
     }
     const [state, setState] = useState(defaultState)
 
+    const contactFormRef = useRef(null)
+
     const {showPopup, email, message, invalidMail, warningMessage, newsletter, newsletterFrequency} = state
 
     const handleChange = (e) => {
@@ -23,7 +27,7 @@ export const ContactForm = () => {
         e.target.name === 'newsletter' ? setState({...state, newsletter: !newsletter}) : setState({...state, newsletterFrequency: e.target.value})
     }
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
 
         if (email === '') {
@@ -35,19 +39,21 @@ export const ContactForm = () => {
         }
 
         setState({...state, showPopup: true});
+        const date = Date.now()
+        await setDoc(doc(db, "User_Message", JSON.stringify(date)), state);
     };
 
     const handlePopupClose = () => {
         setState({...defaultState})
+        contactFormRef.current.reset()
     };
 
     return (
         <div>
-        {JSON.stringify(state)}
             <section className="reveal">
                 <div className="sec7">
                     <h2 className="sec7__title">PRENONS CONTACT</h2>
-                    <form className="sec7__form mb-5" onSubmit={handleSubmit}>
+                    <form className="sec7__form mb-5" onSubmit={handleSubmit} ref={contactFormRef}>
                         <div className="sec7__form__div">
                             <h4 className="sec7__form__div__h4">ADRESSE EMAIL</h4>
                             <input
