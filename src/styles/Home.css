@@ -38,7 +38,7 @@
 
 /*SECTION 1*/
 .sect1 {
-    margin: 200px 0;
+    margin: 150px 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -61,6 +61,9 @@
 }
 
 @media (max-width: 900px) {
+    .sect1 {
+        margin: 125px 0
+    }
     .sect1 h1 {
         font-size: 70px;
     }
@@ -85,7 +88,7 @@
     }
 
     .sect1__logoDc img {
-        width: 100px;
+        width: 75px;
     }
 }
 

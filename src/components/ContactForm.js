@@ -2,34 +2,48 @@ import React, { useState } from 'react';
 import '../styles/ContactForm.css'
 
 export const ContactForm = () => {
-    const [showPopup, setShowPopup] = useState(false);
-    const [email, setEmail] = useState('');
-    const [message, setMessage] = useState('');
-    const [invalidMail, setInvalidMail] = useState('');
-    const [warningMessage, setWarningMessage] = useState('');
+    const defaultState = {
+        showPopup: false,
+        newsletter: false,
+        newsletterFrequency: "choisir",
+        email: '',
+        message: '',
+        invalidMail: '',
+        warningMessage: '',
+    }
+    const [state, setState] = useState(defaultState)
+
+    const {showPopup, email, message, invalidMail, warningMessage, newsletter, newsletterFrequency} = state
+
+    const handleChange = (e) => {
+        e.target.name === 'message' ? setState({...state, message: e.target.value}) : setState({...state, email: e.target.value})
+    }
+
+    const handleNewsLetter = (e) => {
+        e.target.name === 'newsletter' ? setState({...state, newsletter: !newsletter}) : setState({...state, newsletterFrequency: e.target.value})
+    }
 
     const handleSubmit = (event) => {
         event.preventDefault();
 
         if (email === '') {
-            setInvalidMail('Champ obligatoire: Entrez votre adresse email !');
+            setState({...state, invalidMail: 'Champ obligatoire: Entrez votre adresse email !'});
             return;
         } else if (message === '') {
-            setWarningMessage('Champ obligatoire: Entrez votre message !');
+            setState({...state, warningMessage: 'Champ obligatoire: Entrez votre adresse email !'});;
             return;
         }
 
-        setShowPopup(true);
+        setState({...state, showPopup: true});
     };
 
     const handlePopupClose = () => {
-        setShowPopup(false);
-        setInvalidMail('');
-        setWarningMessage('');
+        setState({...defaultState})
     };
 
     return (
         <div>
+        {JSON.stringify(state)}
             <section className="reveal">
                 <div className="sec7">
                     <h2 className="sec7__title">PRENONS CONTACT</h2>
@@ -43,7 +57,7 @@ export const ContactForm = () => {
                                 id="userMail"
                                 placeholder="Addresse email"
                                 value={email}
-                                onChange={(e) => setEmail(e.target.value)}
+                                onChange={handleChange}
                             />
                             <span className="invalidMail">{invalidMail}</span>
                         </div>
@@ -54,12 +68,12 @@ export const ContactForm = () => {
                                 <label htmlFor="newsletter">
                                     En cochant cette case vous acceptez de recevoir l'actualité concernant les aventures de Batman:
                                 </label>
-                                <input type="checkbox" required name="newsletter" id="newsletter" />
+                                <input type="checkbox" required name="newsletter" id="newsletter" checked={newsletter} onChange={handleNewsLetter}/>
                             </div>
 
                             <div className="sec7__form__div__selectContainer">
-                                <select className="sec7__form__div__selectContainer__select" name="frequence" id="frequence">
-                                    <option className="sec7__form__div__selectContainer__select__option" value="null" defaultValue>
+                                <select className="sec7__form__div__selectContainer__select" name="newsLetterFrequency" id="frequence" value={newsletterFrequency} onChange={handleNewsLetter}>
+                                    <option className="sec7__form__div__selectContainer__select__option" value="choisir" defaultValue>
                                         Choisissez la fréquence à laquelle vous souhaitez recevoir votre newsletter
                                     </option>
                                     <option className="sec7__form__div__selectContainer__select__option" value="par semaine">
@@ -120,7 +134,7 @@ export const ContactForm = () => {
                                 rows="1"
                                 placeholder="Laissez un commentaire pour la communauté"
                                 value={message}
-                                onChange={(e) => setMessage(e.target.value)}
+                                onChange={handleChange}
                             ></textarea>
                             <span className="warningMessage">{warningMessage}</span>
                         </div>

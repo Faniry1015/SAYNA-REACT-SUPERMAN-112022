@@ -1,16 +1,38 @@
 .monCompte__header {
-    margin: 250px 10% 200px
+    margin: 150px 10% 150px
 }
 
-.monCompte__header h1 {
+.monCompte__header h1 { 
     font-family: 'Adventure';
-    font-size: 85px;
+    font-size: 75px;
     font-weight: bold;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
+    .monCompte__header {
+        margin: 150px 10% 200px
+    }
+
+    .monCompte__header {
+        margin: 125px 10% 200px
+    }
+
     .monCompte__header h1 {
         font-size: 50px ;
+    }
+}
+
+@media (max-width: 600px) {
+    .monCompte__header {
+        margin: 100px 10% 100px
+    }
+
+    .monCompte__header {
+        margin: 125px 10% 125px
+    }
+
+    .monCompte__header h1 {
+        font-size: 30px ;
     }
 }
 

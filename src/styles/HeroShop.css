@@ -1,5 +1,5 @@
 #hero {
-    margin: 250px 2% 200px
+    margin: 225px 7% 200px
 }
 
 #hero h1 {
@@ -7,9 +7,19 @@
     font-size: 75px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
+    #hero {
+        margin: 125px 10% 150px
+    }
+
     #hero h1 {
         font-size: 50px ;
+    }
+}
+
+@media (max-width: 600px) {
+    #hero h1 {
+        font-size: 30px ;
     }
 }
 

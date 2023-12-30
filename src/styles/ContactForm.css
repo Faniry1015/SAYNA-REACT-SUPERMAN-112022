@@ -19,6 +19,8 @@
     font-weight: 100;
 }
 
+
+
 .sec7__form__div__input,
 .sec7__form__div__checkbox,
 .sec7__form__div__fieldset__legend,
@@ -40,7 +42,7 @@
 }
 
 .sec7__form__div__selectContainer select option {
-    background-color:grey;
+    background-color: grey;
 }
 
 .sec7__form__div__checkbox {
@@ -51,9 +53,9 @@
 }
 
 .sec7__form__div__checkbox input[type="checkbox"] {
-    	position: relative;
-        bottom: -3px;
-        right: -5px;
+    position: relative;
+    bottom: -3px;
+    right: -5px;
 }
 
 fieldset {
@@ -71,23 +73,23 @@ fieldset {
     display: none;
 }
 
-.sec7__form__div__fieldset__radioContain__choice + label {
+.sec7__form__div__fieldset__radioContain__choice+label {
     width: 100px;
     padding: 5px 0;
-    margin: 5px; 
+    margin: 5px;
     font-size: 14px;
     font-family: Rajdhani;
     text-align: center;
     border-image: linear-gradient(60deg, rgba(255, 254, 254, 0.527), rgba(0, 0, 255, 0.589)) 1 / 1.5px;
-    -o-border-image: linear-gradient(60deg,rgba(255, 254, 254, 0.527), rgba(0, 0, 255, 0.589)) 1 / 1.5px;
+    -o-border-image: linear-gradient(60deg, rgba(255, 254, 254, 0.527), rgba(0, 0, 255, 0.589)) 1 / 1.5px;
 }
 
-.sec7__form__div__fieldset__radioContain__choice+ label:hover {
+.sec7__form__div__fieldset__radioContain__choice+label:hover {
     background-color: rgba(255, 255, 255, 0.5);
-    cursor:pointer;
+    cursor: pointer;
 }
 
-.sec7__form__div__fieldset__radioContain__choice:checked + label {
+.sec7__form__div__fieldset__radioContain__choice:checked+label {
     background-color: rgba(255, 255, 255, 0.5);
 }
 
@@ -106,12 +108,20 @@ fieldset {
 
 .warningMessage,
 .invalidMail {
-color: red;
-opacity: 0.8;
+    color: red;
+    opacity: 0.8;
 }
 
 .sec7__form__div__checkbox label {
     font-family: 'Cantarell';
+}
+
+@media (max-width: 500px) {
+    .sec7 {
+        background: linear-gradient(135deg, #EDDEBF60, #19587D60);
+        padding: 20px 5px;
+        min-width: 350px;
+    }
 }
 
 /*Popup box */
@@ -124,5 +134,5 @@ opacity: 0.8;
     display: flex;
     justify-content: center;
     align-items: center;
-    background:  linear-gradient(80deg, #07338C, #B11313);
+    background: linear-gradient(80deg, #07338C, #B11313);
 }
